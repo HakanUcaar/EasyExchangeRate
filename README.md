@@ -9,6 +9,7 @@ Some central bank exchange rates
 - RussiaAdapter 
 - AustraliaAdapter
 - PolandAdapter 
+- CanadaAdapter
 
 
 ## Usage
