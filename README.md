@@ -1,6 +1,16 @@
 # EasyExchangeRate
 Some central bank exchange rates
 
+<details>
+	<summary>To Do</summary>
+ 
+  - [X] Add more country
+  - [X] JSON serialize
+  - [X] Nuget packed
+  - [X] Web deploy(open api)
+  
+</details>
+
 ## Adapter List
 - TurkeyAdapter
 - EuropeAdapter 
