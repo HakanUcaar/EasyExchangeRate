@@ -2,7 +2,7 @@
 Some central bank exchange rates
 
 <details>
-	<summary>To Do</summary>
+	<summary>Todo</summary>
  
   - [X] Add more country
   - [X] JSON serialize
