@@ -14,15 +14,15 @@ namespace EasyExchangeRate.Test
             //GetCurrencies();
             //GetRate();
             //GetRates();
-            //MathOperations();
-            Convert();
+            MathOperations();
+            //Convert();
 
             Console.ReadLine();
         }
 
         static void GetCurrencies()
         {
-            ExchangeRate.RussiaAdapter.Currencies.ForEach(currency =>
+            ExchangeRate.EuropeAdapter.Currencies.ForEach(currency =>
             {
                 Console.WriteLine(currency.ToString());
             });
@@ -34,7 +34,7 @@ namespace EasyExchangeRate.Test
             Console.WriteLine("Rate :");
             ExchangeRate.TurkeyAdapter.GetRate(CurrencyCodes.EUR).Do(rate =>
             {
-                Console.WriteLine($"{rate.TargetCurrency.Name} = " + rate.Money.Amount);
+                Console.WriteLine($"1 {rate.TargetCurrency.Name} = {rate.Money.Amount} {rate.Money.Currency.IsoCode}" );
             });
         }
 
@@ -51,19 +51,12 @@ namespace EasyExchangeRate.Test
 
         static void MathOperations()
         {
-            ExchangeRate.TurkeyAdapter.GetRate(CurrencyCodes.EUR).Do(rateEur =>
-            {
-                Console.WriteLine($"{rateEur.TargetCurrency.Name} = " + rateEur.Money.Amount);
-                Console.WriteLine($"Sum +3 = " + (rateEur + 3));
-                Console.WriteLine($"Minus -1.5 = " + (rateEur - 1.3M));
-                Console.WriteLine($"Divide 2 = " + (rateEur / 2));
-                Console.WriteLine($"Multi 5 = " + (rateEur * 5));
-
-                ExchangeRate.TurkeyAdapter.GetRate(CurrencyCodes.USD).Do(rateUsd =>
-                {
-                    Console.WriteLine($"Sum two rate = " + (rateEur + rateUsd));
-                });
-            });
+            var rateUsd = ExchangeRate.EuropeAdapter.GetRate(CurrencyCodes.USD);
+            Console.WriteLine($"1 {rateUsd.Money.Currency.Name } = {rateUsd.Money.Amount} {rateUsd.TargetCurrency.Name}");
+            Console.WriteLine($"Plus +3 = " + (rateUsd + 3));
+            Console.WriteLine($"Minus -1.5 = " + (rateUsd - 1.3M));
+            Console.WriteLine($"Divide 2 = " + (rateUsd / 2));
+            Console.WriteLine($"Multiply 5 = " + (rateUsd * 5));
         }
 
         static void Convert()
@@ -71,13 +64,13 @@ namespace EasyExchangeRate.Test
             ExchangeRate.TurkeyAdapter.HowMuch<EurCurrency, UsdCurrency>(1).Do(convert =>
             {
                 var amount = convert.Money.Amount;
-                Console.WriteLine($"1 {convert.TargetCurrency.ToString()} = {Math.Round(amount, 4)}{convert.Money.Currency.Symbol} ");
+                Console.WriteLine($"1 {convert.TargetCurrency} = {Math.Round(amount, 4)}{convert.Money.Currency.Symbol} ");
             });
 
             ExchangeRate.TurkeyAdapter.HowMuch<UsdCurrency,EurCurrency>(1).Do(convert =>
             {
                 var amount = convert.Money.Amount;
-                Console.WriteLine($"1 {convert.TargetCurrency.ToString()} = {Math.Round(amount, 4)}{convert.Money.Currency.ToString()} ");
+                Console.WriteLine($"1 {convert.TargetCurrency} = {Math.Round(amount, 4)}{convert.Money.Currency} ");
             });
         }
     }

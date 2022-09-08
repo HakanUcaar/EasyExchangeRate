@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace EasyExchangeRate.Common
 {
-    public class EasyMoney : EasyValueOf<(decimal Amount, EasyCurrency Currency), EasyMoney>
+    public class EasyMoney : EasyValueOf<(decimal amount, EasyCurrency currency), EasyMoney>
     {
-        public decimal Amount => Value.Amount;
-        public EasyCurrency Currency => Value.Currency;
+        public decimal Amount => Value.amount;
+        public EasyCurrency Currency => Value.currency;
 
         public override string ToString()
         {
-            return $"{Value.Amount}{Value.Currency.Value.Symbol}";
+            return $"{Amount} {Currency.IsoCode}";
         }
 
         protected static bool Equal(EasyMoney a, EasyMoney b)
@@ -21,23 +21,23 @@ namespace EasyExchangeRate.Common
             if (a is null || b is null)
                 return false;
 
-            return a.Value.Currency.Value.Symbol == b.Value.Currency.Value.Symbol;
+            return a.Currency.Symbol == b.Currency.Symbol;
         }
         public static EasyMoney operator *(EasyMoney a, Decimal b)
         {
-            return EasyMoney.From(((a.Value.Amount * b), a.Value.Currency));
+            return EasyMoney.From(((a.Amount * b), a.Currency));
         }
         public static EasyMoney operator + (EasyMoney a, Decimal b)
         {
-            return EasyMoney.From(((a.Value.Amount + b), a.Value.Currency));
+            return EasyMoney.From(((a.Amount + b), a.Currency));
         }
         public static EasyMoney operator -(EasyMoney a, Decimal b)
         {
-            return EasyMoney.From(((a.Value.Amount - b), a.Value.Currency));
+            return EasyMoney.From(((a.Amount - b), a.Currency));
         }
         public static EasyMoney operator /(EasyMoney a, Decimal b)
         {
-            return EasyMoney.From(((a.Value.Amount / b), a.Value.Currency));
+            return EasyMoney.From(((a.Amount / b), a.Currency));
         }
         public static EasyMoney operator + (EasyMoney a, EasyMoney b)
         {
@@ -46,7 +46,7 @@ namespace EasyExchangeRate.Common
                 throw new NotEqualMoneyCurrencyException();
             }
 
-            return EasyMoney.From(((a.Value.Amount + b.Value.Amount), a.Value.Currency));
+            return EasyMoney.From(((a.Amount + b.Amount), a.Currency));
         }
         public static EasyMoney operator - (EasyMoney a, EasyMoney b)
         {
@@ -55,7 +55,7 @@ namespace EasyExchangeRate.Common
                 throw new NotEqualMoneyCurrencyException();
             }
 
-            return EasyMoney.From(((a.Value.Amount - b.Value.Amount), a.Value.Currency));
+            return EasyMoney.From(((a.Amount - b.Amount), a.Currency));
         }
     }
 }
