@@ -20,7 +20,7 @@ namespace EasyExchangeRate.Adapter
 
     public class TurkeyAdapterHumanizer: DynamicObject
     {
-        String[] RateKeys = new String[] { "DövizKuru", "Kur", "Döviz" };
+        String[] RateKeys = new String[] { "DövizKuru", "Kur", "Döviz", "NeKadar" };
         String[] ExhangeKeys = new String[] { "Çevir", "KaçPara", "NeKadar", "Kaç" };
         public DynamicResult Result { get; set; }
 
@@ -74,7 +74,7 @@ namespace EasyExchangeRate.Adapter
                 
                 resultCode = true;
             }
-
+            else
             if (ExhangeKeys.Any(x => x == binder.Name))
             {
                 if(Result.BaseRate.IsNotNull() && Result.TargetRates.Count() > 0)
@@ -89,28 +89,28 @@ namespace EasyExchangeRate.Adapter
                 result = Result.Rates;
                 resultCode = true;
             }
-
+            else
             if (ExchangeRate.TurkeyAdapter.Currencies.Any(x => x.Symbol == binder.Name))
             {
                 var currency = ExchangeRate.TurkeyAdapter.Currencies.FirstOrDefault(x => x.Symbol == binder.Name);
                 result = Build(ExchangeRate.TurkeyAdapter.GetRate(currency));
                 resultCode = true;
             }
-
+            else
             if (ExchangeRate.TurkeyAdapter.Currencies.Any(x => x.Name == binder.Name))
             {
                 var currency = ExchangeRate.TurkeyAdapter.Currencies.FirstOrDefault(x => x.Name == binder.Name);
                 result = Build(ExchangeRate.TurkeyAdapter.GetRate(currency));
                 resultCode = true;
             }
-
+            else
             if (ExchangeRate.TurkeyAdapter.Currencies.Any(x => x.IsoCode.ToString() == binder.Name))
             {
                 var currency = ExchangeRate.TurkeyAdapter.Currencies.FirstOrDefault(x => x.IsoCode.ToString() == binder.Name);
                 result = Build(ExchangeRate.TurkeyAdapter.GetRate(currency));
                 resultCode = true;
             }
-
+            else
             if (ExchangeRate.TurkeyAdapter.Currencies.Any(x => x.NumericCode == binder.Name))
             {
                 var currency = ExchangeRate.TurkeyAdapter.Currencies.FirstOrDefault(x => x.NumericCode == binder.Name);

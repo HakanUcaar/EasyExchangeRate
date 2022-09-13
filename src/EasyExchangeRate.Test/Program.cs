@@ -85,16 +85,14 @@ namespace EasyExchangeRate.Test
 
         static void Humanizer()
         {
-            //currs.ForEach(x => Console.WriteLine(x));
+            //EasyRate rate = ExchangeRate.TurkeyAdapterHumanizer.EUR.NeKadar;
+            //Console.WriteLine($"1 {rate.TargetCurrency.Name} = {rate.Money.Amount} {rate.Money.Currency.IsoCode}");
 
-            //EasyRate rate = ExchangeRate.TurkeyAdapterHumanizer.EUR.Kur;
-            //Console.WriteLine(rate);
+            //List<EasyRate> rates = ExchangeRate.TurkeyAdapterHumanizer.EUR.USD.DövizKuru;
+            //rates.ForEach(rate => Console.WriteLine($"1 {rate.TargetCurrency.Name} = {rate.Money.Amount} {rate.Money.Currency.IsoCode}"));
 
-            //List<EasyRate> rates = ExchangeRate.TurkeyAdapterHumanizer.EUR.USD.Kur;
-            //rates.ForEach(x => Console.WriteLine(x));
-
-            List<EasyRate> convert = ExchangeRate.TurkeyAdapterHumanizer.USD.EUR.USD.NeKadar;
-            convert.ForEach(x => Console.WriteLine(x));
+            List<EasyRate> convert = ExchangeRate.TurkeyAdapterHumanizer.USD.EUR.GBP.Çevir;
+            convert.ForEach(rate => Console.WriteLine($"1 {rate.TargetCurrency.Name} = {rate.Money.Amount} {rate.Money.Currency.IsoCode}"));
         }
     }
 }
