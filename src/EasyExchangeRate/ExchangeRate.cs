@@ -12,7 +12,8 @@ namespace EasyExchangeRate
         public static readonly CanadaAdapter CanadaAdapter;
         public static readonly AustraliaAdapter AustraliaAdapter;
         public static readonly PolandAdapter PolandAdapter;
-        
+        public static readonly dynamic TurkeyAdapterHumanizer;
+
 
         static ExchangeRate()
         {
@@ -23,6 +24,7 @@ namespace EasyExchangeRate
             RussiaAdapter = new RussiaAdapter();
             AustraliaAdapter = new AustraliaAdapter();
             PolandAdapter = new PolandAdapter();
+            TurkeyAdapterHumanizer = Adapter.TurkeyAdapterHumanizer.New();
         }
         
 

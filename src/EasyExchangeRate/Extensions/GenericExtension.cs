@@ -8,6 +8,14 @@ namespace EasyExchangeRate.Extensions
 {
     public static class GenericExtension
     {
+        public static T ParseEnum<T>(string value)
+        {
+            return (T)Enum.Parse(typeof(T), value, true);
+        }
+        public static T ToEnum<T>(this string value)
+        {
+            return (T)Enum.Parse(typeof(T), value, true);
+        }
         public static bool IsNull<T>(this T obj) where T : class
         {
             if (obj is string)

@@ -30,7 +30,7 @@ namespace EasyExchangeRate.Abstraction
                 GetRates();
             }
 
-            var money = Rates.FirstOrDefault(x => x.TargetCurrency == currency);
+            var money = Rates.FirstOrDefault(x => x.Value.TargetCurrency == currency);
             if (money.IsNull())
             {
                 throw new CurrencyNotFoundException();
@@ -45,7 +45,7 @@ namespace EasyExchangeRate.Abstraction
                 GetRates();
             }
 
-            var money = Rates.FirstOrDefault(x => x.TargetCurrency.Value.IsoCode == isoCode);
+            var money = Rates.FirstOrDefault(x => x.Value.TargetCurrency.Value.IsoCode == isoCode);
             if (money.IsNull())
             {
                 throw new CurrencyNotFoundException();
@@ -64,8 +64,8 @@ namespace EasyExchangeRate.Abstraction
             var sourceCurrency = ((ICurrency)Activator.CreateInstance(typeof(Source))).GetInfo();
             var targetCurrency = ((ICurrency)Activator.CreateInstance(typeof(Target))).GetInfo();
 
-            var sourceMoney = Rates.FirstOrDefault(x => x.TargetCurrency == sourceCurrency);
-            var targetMoney = Rates.FirstOrDefault(x => x.TargetCurrency == targetCurrency);
+            var sourceMoney = Rates.FirstOrDefault(x => x.Value.TargetCurrency == sourceCurrency);
+            var targetMoney = Rates.FirstOrDefault(x => x.Value.TargetCurrency == targetCurrency);
 
             if (sourceMoney.IsNull() || targetMoney.IsNull())
             {
@@ -74,7 +74,7 @@ namespace EasyExchangeRate.Abstraction
 
             var money = (sourceMoney / targetMoney) * amount;            
 
-            return EasyRate.From((money, sourceMoney.TargetCurrency));
+            return EasyRate.From((money, sourceMoney.Value.TargetCurrency));
         }
         public virtual EasyRate HowMuch(CurrencyCodes source , CurrencyCodes target,  decimal amount) 
         {
@@ -83,8 +83,8 @@ namespace EasyExchangeRate.Abstraction
                 GetRates();
             }
 
-            var sourceMoney = Rates.FirstOrDefault(x => x.TargetCurrency.IsoCode == source);
-            var targetMoney = Rates.FirstOrDefault(x => x.TargetCurrency.IsoCode == target);
+            var sourceMoney = Rates.FirstOrDefault(x => x.Value.TargetCurrency.Value.IsoCode == source);
+            var targetMoney = Rates.FirstOrDefault(x => x.Value.TargetCurrency.Value.IsoCode == target);
             
             if (sourceMoney.IsNull() || targetMoney.IsNull())
             {
@@ -93,7 +93,26 @@ namespace EasyExchangeRate.Abstraction
 
             var money = (sourceMoney / targetMoney) * amount;
 
-            return EasyRate.From((money, sourceMoney.TargetCurrency));
+            return EasyRate.From((money, sourceMoney.Value.TargetCurrency));
+        }
+        public virtual EasyRate HowMuch(string sourceCode, string targetCode, decimal amount)
+        {
+            if (!Rates.Any())
+            {
+                GetRates();
+            }
+
+            var sourceMoney = Rates.FirstOrDefault(x => x.Value.TargetCurrency.Value.IsoCode == sourceCode.ToEnum<CurrencyCodes>());
+            var targetMoney = Rates.FirstOrDefault(x => x.Value.TargetCurrency.Value.IsoCode == targetCode.ToEnum<CurrencyCodes>());
+
+            if (sourceMoney.IsNull() || targetMoney.IsNull())
+            {
+                throw new CurrencyNotFoundException();
+            }
+
+            var money = (sourceMoney / targetMoney) * amount;
+
+            return EasyRate.From((money, sourceMoney.Value.TargetCurrency));
         }
     }
 }
