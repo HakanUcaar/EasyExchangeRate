@@ -3,15 +3,15 @@
     /// <summary>
     /// Bgn Currency
     /// </summary>
-    public class BgnCurrency : EasyCurrency, ICurrency
+    public class BgnCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static BgnCurrency()
         {
-            Info = EasyCurrency.From(("лв.", CurrencyCodes.BGN, "975", "Bulgarian lev"));
+            Info = Currency.From(("лв.", CurrencyCodes.BGN, "975", "Bulgarian lev", "stotinka"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

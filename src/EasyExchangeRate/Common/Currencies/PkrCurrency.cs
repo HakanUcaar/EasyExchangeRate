@@ -1,14 +1,14 @@
 namespace EasyExchangeRate.Common
 {
-    public class PkrCurrency : EasyCurrency, ICurrency
+    public class PkrCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static PkrCurrency()
         {
-            Info = EasyCurrency.From(("Rs", CurrencyCodes.PKR, "586", "Pakistani Rupee"));
+            Info = Currency.From(("Rs", CurrencyCodes.PKR, "586", "Pakistani Rupee", "paisa"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

@@ -4,6 +4,8 @@ using EasyExchangeRate.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using EasyExchangeRate.Localization;
+using EasyExchangeRate.Localization.NumberToWord;
 
 namespace EasyExchangeRate.Test
 {
@@ -17,7 +19,8 @@ namespace EasyExchangeRate.Test
             //GetRates();
             //MathOperations();
             //Convert();
-            Humanizer();
+            //Humanizer();
+            NumberToWord();
 
             Console.ReadLine();
         }
@@ -42,7 +45,7 @@ namespace EasyExchangeRate.Test
 
         static void GetRates()
         {
-            Console.WriteLine($"Base Currency : {ExchangeRate.TurkeyAdapter.BaseCurrency.Value.Name}");
+            Console.WriteLine($"Base Currency : {ExchangeRate.TurkeyAdapter.BaseCurrency.Name}");
             Console.WriteLine("Rates :");
 
             ExchangeRate.TurkeyAdapter.GetRates().ForEach(rate =>
@@ -91,8 +94,20 @@ namespace EasyExchangeRate.Test
             //List<EasyRate> rates = ExchangeRate.TurkeyAdapterHumanizer.EUR.USD.DövizKuru;
             //rates.ForEach(rate => Console.WriteLine($"1 {rate.TargetCurrency.Name} = {rate.Money.Amount} {rate.Money.Currency.IsoCode}"));
 
-            List<EasyRate> convert = ExchangeRate.TurkeyAdapterHumanizer.USD.EUR.GBP.Çevir;
+            List<Rate> convert = ExchangeRate.TurkeyAdapterHumanizer.USD.EUR.GBP.Çevir;
             convert.ForEach(rate => Console.WriteLine($"1 {rate.TargetCurrency.Name} = {rate.Money.Amount} {rate.Money.Currency.IsoCode}"));
+        }
+
+        static void NumberToWord()
+        {
+            ExchangeRate.TurkeyAdapter.GetRate(CurrencyCodes.EUR).Do(rate =>
+            {
+                Console.WriteLine(EnglishNumberToWordsConverter.New().ToWord(rate));
+            });
+
+            Console.WriteLine(EnglishNumberToWordsConverter.New().Convert(1000100));
+            Console.WriteLine(TurkeyNumberToWordConverter.New().Convert(1000100));          
+
         }
     }
 }

@@ -1,14 +1,14 @@
 namespace EasyExchangeRate.Common
 {
-    public class SzlCurrency : EasyCurrency, ICurrency
+    public class SzlCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static SzlCurrency()
         {
-            Info = EasyCurrency.From(("L", CurrencyCodes.SZL, "748", "Swazi lilangeni"));
+            Info = Currency.From(("L", CurrencyCodes.SZL, "748", "Swazi lilangeni", "cent"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

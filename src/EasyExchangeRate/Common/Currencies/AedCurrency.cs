@@ -3,14 +3,14 @@
     /// <summary>
     /// United Arab Emirates dirham
     /// </summary>
-    public class AedCurrency : EasyCurrency, ICurrency
+    public class AedCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static AedCurrency()
         {
-            Info = EasyCurrency.From(("د.إ.", CurrencyCodes.AED, "784", "United Arab Emirates dirham"));
+            Info = Currency.From(("د.إ.", CurrencyCodes.AED, "784", "United Arab Emirates dirham", "fils"));
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

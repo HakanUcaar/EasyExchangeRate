@@ -3,15 +3,14 @@
     /// <summary>
     /// Mur Currency
     /// </summary>
-    public class MurCurrency : EasyCurrency, ICurrency
+    public class MurCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static MurCurrency()
         {
-            Info = EasyCurrency.From(("₨", CurrencyCodes.MUR, "480", "Mauritian rupee"));
-
+            Info = Currency.From(("₨", CurrencyCodes.MUR, "480", "Mauritian rupee", "cent"));
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

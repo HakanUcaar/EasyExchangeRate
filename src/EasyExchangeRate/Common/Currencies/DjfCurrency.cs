@@ -1,14 +1,14 @@
 ﻿namespace EasyExchangeRate.Common
 {
-    public class DjfCurrency : EasyCurrency, ICurrency
+    public class DjfCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static DjfCurrency()
         {
-            Info = EasyCurrency.From(("Fdj", CurrencyCodes.DJF, "262", "Djiboutian franc"));
+            Info = Currency.From(("Fdj", CurrencyCodes.DJF, "262", "Djiboutian franc", "centime"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

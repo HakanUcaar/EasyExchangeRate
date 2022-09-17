@@ -1,17 +1,17 @@
-namespace EasyExchangeRate.Common
+﻿namespace EasyExchangeRate.Common
 {
     /// <summary>
     /// Mop Currency
     /// </summary>
-    public class MopCurrency : EasyCurrency, ICurrency
+    public class MopCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static MopCurrency()
         {
-            Info = EasyCurrency.From(("MOP", CurrencyCodes.MOP, "446", "Macanese Pataca"));
+            Info = Currency.From(("MOP", CurrencyCodes.MOP, "446", "Macanese Pataca", "仙"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

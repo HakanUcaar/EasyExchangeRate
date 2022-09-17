@@ -3,15 +3,15 @@ namespace EasyExchangeRate.Common
     /// <summary>
     /// Irr Currency
     /// </summary>
-    public class IrrCurrency : EasyCurrency, ICurrency
+    public class IrrCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static IrrCurrency()
         {
-            Info =  EasyCurrency.From(("ريال", CurrencyCodes.IRR, "364", "Iranian Rial"));
+            Info =  Currency.From(("ريال", CurrencyCodes.IRR, "364", "Iranian Rial", "dinar"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

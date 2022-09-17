@@ -3,15 +3,15 @@ namespace EasyExchangeRate.Common
     /// <summary>
     /// Xdr Currency
     /// </summary>
-    public class XdrCurrency : EasyCurrency, ICurrency
+    public class XdrCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static XdrCurrency()
         {
-            Info = EasyCurrency.From(("XDR", CurrencyCodes.XDR, "960", "Special Drawing Rights"));
+            Info = Currency.From(("XDR", CurrencyCodes.XDR, "960", "Special Drawing Rights", "Xdr"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

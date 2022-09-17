@@ -3,14 +3,14 @@
     /// <summary>
     /// Albanian lek
     /// </summary>
-    public class AllCurrency : EasyCurrency, ICurrency
+    public class AllCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static AllCurrency()
         {
-            Info = EasyCurrency.From(("L", CurrencyCodes.ALL, "008", "Albanian lek"));
+            Info = Currency.From(("L", CurrencyCodes.ALL, "008", "Albanian lek", "qindarkë"));
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

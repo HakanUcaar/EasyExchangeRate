@@ -1,14 +1,14 @@
 namespace EasyExchangeRate.Common
 {
-    public class PenCurrency : EasyCurrency, ICurrency
+    public class PenCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static PenCurrency()
         {
-            Info = EasyCurrency.From(("S/", CurrencyCodes.PEN, "604", "Peruvian Sol"));
+            Info = Currency.From(("S/", CurrencyCodes.PEN, "604", "Peruvian Sol", "céntimo"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

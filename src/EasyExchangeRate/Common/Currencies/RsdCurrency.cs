@@ -1,14 +1,14 @@
 namespace EasyExchangeRate.Common
 {
-    public class RsdCurrency : EasyCurrency, ICurrency
+    public class RsdCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static RsdCurrency()
         {
-            Info = EasyCurrency.From(("дин.", CurrencyCodes.RSD, "941", "Serbian Dinar"));
+            Info = Currency.From(("дин.", CurrencyCodes.RSD, "941", "Serbian Dinar", "para"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

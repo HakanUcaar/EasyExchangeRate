@@ -3,14 +3,14 @@
     /// <summary>
     /// Ars Currency
     /// </summary>
-    public class ArsCurrency : EasyCurrency, ICurrency
+    public class ArsCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static ArsCurrency()
         {
-            Info = EasyCurrency.From(("$", CurrencyCodes.ARS, "032", "Argentine peso"));
+            Info = Currency.From(("$", CurrencyCodes.ARS, "032", "Argentine peso", "centavo"));
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

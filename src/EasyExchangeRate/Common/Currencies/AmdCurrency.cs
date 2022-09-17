@@ -3,14 +3,14 @@
     /// <summary>
     /// Armenian dram
     /// </summary>
-    public class AmdCurrency : EasyCurrency, ICurrency
+    public class AmdCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static AmdCurrency()
         {
-            Info = EasyCurrency.From(("֏", CurrencyCodes.AMD, "051", "Armenian dram"));
+            Info = Currency.From(("֏", CurrencyCodes.AMD, "051", "Armenian dram", "լումա"));
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

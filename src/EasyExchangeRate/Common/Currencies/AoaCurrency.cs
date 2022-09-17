@@ -3,14 +3,14 @@
     /// <summary>
     /// Aoa Currency
     /// </summary>
-    public class AoaCurrency : EasyCurrency, ICurrency
+    public class AoaCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static AoaCurrency()
         {
-            Info = EasyCurrency.From(("Kz", CurrencyCodes.AOA, "973", "Angolan kwanza"));
+            Info = Currency.From(("Kz", CurrencyCodes.AOA, "973", "Angolan kwanza", "cêntimo"));
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

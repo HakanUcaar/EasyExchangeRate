@@ -3,15 +3,15 @@ namespace EasyExchangeRate.Common
     /// <summary>
     /// Krw Currency
     /// </summary>
-    public class KrwCurrency : EasyCurrency, ICurrency
+    public class KrwCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static KrwCurrency()
         {
-            Info = EasyCurrency.From(("₩", CurrencyCodes.KRW, "410", "South Korean Won"));
+            Info = Currency.From(("₩", CurrencyCodes.KRW, "410", "South Korean Won", "jeon"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

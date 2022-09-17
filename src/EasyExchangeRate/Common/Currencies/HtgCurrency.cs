@@ -3,15 +3,15 @@ namespace EasyExchangeRate.Common
     /// <summary>
     /// Htg Currency
     /// </summary>
-    public class HtgCurrency : EasyCurrency, ICurrency
+    public class HtgCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static HtgCurrency()
         {
-            Info = EasyCurrency.From(("G", CurrencyCodes.HTG, "332", "Haitian Gourde"));
+            Info = Currency.From(("G", CurrencyCodes.HTG, "332", "Haitian Gourde", "centime"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

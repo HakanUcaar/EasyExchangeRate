@@ -3,15 +3,15 @@
     /// <summary>
     /// Awg Currency
     /// </summary>
-    public class AwgCurrency : EasyCurrency, ICurrency
+    public class AwgCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static AwgCurrency()
         {
-            Info = EasyCurrency.From(("Afl", CurrencyCodes.AUD, "533", "Aruban florin"));
+            Info = Currency.From(("Afl", CurrencyCodes.AUD, "533", "Aruban florin", "cent"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

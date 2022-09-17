@@ -3,15 +3,15 @@ namespace EasyExchangeRate.Common
     /// <summary>
     /// Lkr Currency
     /// </summary>
-    public class LkrCurrency : EasyCurrency, ICurrency
+    public class LkrCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static LkrCurrency()
         {
-            Info = EasyCurrency.From(("රු.", CurrencyCodes.LKR, "144", "Sri Lankan Rupee"));
+            Info = Currency.From(("රු.", CurrencyCodes.LKR, "144", "Sri Lankan Rupee", "cents"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

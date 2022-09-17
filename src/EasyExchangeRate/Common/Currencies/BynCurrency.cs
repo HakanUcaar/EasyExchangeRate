@@ -3,15 +3,15 @@
     /// <summary>
     /// Byn Currency
     /// </summary>
-    public class BynCurrency : EasyCurrency, ICurrency
+    public class BynCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static BynCurrency()
         {
-            Info = EasyCurrency.From(("Br", CurrencyCodes.BYN, "933", "Belarusian ruble"));
+            Info = Currency.From(("Br", CurrencyCodes.BYN, "933", "Belarusian ruble",""));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

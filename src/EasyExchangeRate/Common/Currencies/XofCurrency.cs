@@ -3,15 +3,15 @@ namespace EasyExchangeRate.Common
     /// <summary>
     /// Xof Currency
     /// </summary>
-    public class XofCurrency : EasyCurrency, ICurrency
+    public class XofCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static XofCurrency()
         {
-            Info = EasyCurrency.From(("CFA", CurrencyCodes.XOF, "952", "West African CFA Franc"));
+            Info = Currency.From(("CFA", CurrencyCodes.XOF, "952", "West African CFA Franc", "centime"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

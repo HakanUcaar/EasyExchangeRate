@@ -3,15 +3,15 @@ namespace EasyExchangeRate.Common
     /// <summary>
     /// Try Currency
     /// </summary>
-    public class TryCurrency : EasyCurrency, ICurrency
+    public class TryCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static TryCurrency()
         {
-            Info = EasyCurrency.From(("₺", CurrencyCodes.TRY, "949", "Turkish Lira"));
+            Info = Currency.From(("₺", CurrencyCodes.TRY, "949", "Turkish Lira", "kuruş"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

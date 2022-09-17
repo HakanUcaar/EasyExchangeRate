@@ -3,15 +3,15 @@ namespace EasyExchangeRate.Common
     /// <summary>
     /// Wst Currency
     /// </summary>
-    public class WstCurrency : EasyCurrency, ICurrency
+    public class WstCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static WstCurrency()
         {
-            Info = EasyCurrency.From(("WS$", CurrencyCodes.WST, "882", "Samoan tala"));
+            Info = Currency.From(("WS$", CurrencyCodes.WST, "882", "Samoan tala", "sene"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

@@ -20,7 +20,7 @@ namespace EasyExchangeRate.Adapter
             Unit = 1
         };
 
-        public override EasyCurrency BaseCurrency => AudCurrency.Info;
+        public override Currency BaseCurrency => AudCurrency.Info;
         public AustraliaAdapter()
         {
             AddCurrency(UsdCurrency.Info);
@@ -43,7 +43,7 @@ namespace EasyExchangeRate.Adapter
             AddCurrency(XdrCurrency.Info);
         }
 
-        public override List<EasyRate> GetRates()
+        public override List<Rate> GetRates()
         {
             var xmlDoc = new XmlDocument();
             xmlDoc.Load(Source.Url);
@@ -56,12 +56,12 @@ namespace EasyExchangeRate.Adapter
             {
                 foreach (XmlNode node in nodes)
                 {
-                    this.Currencies.Find(x => x.Value.IsoCode.ToString() == node.SelectSingleNode("cb:targetCurrency", namespaceManager).InnerText).Do(currency =>
+                    this.Currencies.Find(x => x.IsoCode.ToString() == node.SelectSingleNode("cb:targetCurrency", namespaceManager).InnerText).Do(currency =>
                     {
                         var val = node.SelectSingleNode("cb:observation/cb:value", namespaceManager).InnerText;
                         var rate = Decimal.Parse((String.IsNullOrEmpty(val) ? "0" : val), NumberStyles.Any, new CultureInfo("en-Us")) / Source.Unit;
 
-                        Rates.Add(EasyRate.From((EasyMoney.From((rate, BaseCurrency)), currency)));
+                        Rates.Add(Rate.From((Money.From((rate, BaseCurrency)), currency)));
                         //this.Rates.Add(EasyMoney.From((rate, currency)));
                     });
                 }

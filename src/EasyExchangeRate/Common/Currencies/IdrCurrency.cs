@@ -3,15 +3,15 @@ namespace EasyExchangeRate.Common
     /// <summary>
     /// Idr Currency
     /// </summary>
-    public class IdrCurrency : EasyCurrency, ICurrency
+    public class IdrCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static IdrCurrency()
         {
-            Info= EasyCurrency.From(("Rp", CurrencyCodes.IDR, "360", "Indonesian Rupiah"));
+            Info= Currency.From(("Rp", CurrencyCodes.IDR, "360", "Indonesian Rupiah", "sen"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

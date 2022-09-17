@@ -3,15 +3,15 @@ namespace EasyExchangeRate.Common
     /// <summary>
     /// Kmf Currency
     /// </summary>
-    public class KmfCurrency : EasyCurrency, ICurrency
+    public class KmfCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static KmfCurrency()
         {
-            Info = EasyCurrency.From(("CF", CurrencyCodes.KMF, "174", "Comoro franc"));
+            Info = Currency.From(("CF", CurrencyCodes.KMF, "174", "Comoro franc", "centime"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

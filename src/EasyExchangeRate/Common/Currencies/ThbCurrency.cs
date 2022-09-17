@@ -3,15 +3,15 @@ namespace EasyExchangeRate.Common
     /// <summary>
     /// Thb Currency
     /// </summary>
-    public class ThbCurrency : EasyCurrency, ICurrency
+    public class ThbCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static ThbCurrency()
         {
-            Info = EasyCurrency.From(("฿", CurrencyCodes.THB, "764", "Thai Baht"));
+            Info = Currency.From(("฿", CurrencyCodes.THB, "764", "Thai Baht", "satang"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

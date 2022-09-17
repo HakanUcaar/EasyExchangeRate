@@ -3,15 +3,15 @@
     /// <summary>
     /// Bbd Currency
     /// </summary>
-    public class BbdCurrency : EasyCurrency, ICurrency
+    public class BbdCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static BbdCurrency()
         {
-            Info = EasyCurrency.From(("$", CurrencyCodes.BBD, "052", "Barbadian dollar"));
+            Info = Currency.From(("$", CurrencyCodes.BBD, "052", "Barbadian dollar", "cent"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

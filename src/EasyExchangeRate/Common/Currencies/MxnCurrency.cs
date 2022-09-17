@@ -3,15 +3,15 @@ namespace EasyExchangeRate.Common
     /// <summary>
     /// Mxn Currency
     /// </summary>
-    public class MxnCurrency : EasyCurrency, ICurrency
+    public class MxnCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static MxnCurrency()
         {
-            Info = EasyCurrency.From(("$", CurrencyCodes.MXN, "484", "Mexican Peso"));
+            Info = Currency.From(("$", CurrencyCodes.MXN, "484", "Mexican Peso", "centavo"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

@@ -3,15 +3,15 @@ namespace EasyExchangeRate.Common
     /// <summary>
     /// Zwl Currency
     /// </summary>
-    public class ZwlCurrency : EasyCurrency, ICurrency
+    public class ZwlCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static ZwlCurrency()
         {
-            Info = EasyCurrency.From(("", CurrencyCodes.ZWL, "932", "Zimbabwean dollar"));
+            Info = Currency.From(("", CurrencyCodes.ZWL, "932", "Zimbabwean dollar", "cent"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

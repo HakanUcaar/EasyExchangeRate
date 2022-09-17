@@ -3,15 +3,15 @@ namespace EasyExchangeRate.Common
     /// <summary>
     /// Usd Currency
     /// </summary>
-    public class UsdCurrency : EasyCurrency, ICurrency
+    public class UsdCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static UsdCurrency()
         {
-            Info = EasyCurrency.From(("$", CurrencyCodes.USD, "840", "US Dollar"));
+            Info = Currency.From(("$", CurrencyCodes.USD, "840", "US Dollar", "Cent"));
         }
 
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

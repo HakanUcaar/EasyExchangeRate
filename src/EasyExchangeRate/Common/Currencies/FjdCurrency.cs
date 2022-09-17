@@ -3,15 +3,15 @@
     /// <summary>
     /// Fjd Currency
     /// </summary>
-    public class FjdCurrency : EasyCurrency, ICurrency
+    public class FjdCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static FjdCurrency()
         {
-            Info = EasyCurrency.From(("FJ$", CurrencyCodes.FJD, "242", "Fiji dollar"));
+            Info = Currency.From(("FJ$", CurrencyCodes.FJD, "242", "Fiji dollar", "cent"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

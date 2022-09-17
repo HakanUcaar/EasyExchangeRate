@@ -3,15 +3,15 @@ namespace EasyExchangeRate.Common
     /// <summary>
     /// Lyd Currency
     /// </summary>
-    public class LydCurrency : EasyCurrency, ICurrency
+    public class LydCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static LydCurrency()
         {
-            Info = EasyCurrency.From(("د.ل.", CurrencyCodes.LYD, "434", "Libyan Dinar"));
+            Info = Currency.From(("د.ل.", CurrencyCodes.LYD, "434", "Libyan Dinar", "dirham"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

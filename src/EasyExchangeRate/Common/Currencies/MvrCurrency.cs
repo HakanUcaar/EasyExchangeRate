@@ -3,15 +3,15 @@ namespace EasyExchangeRate.Common
     /// <summary>
     /// Mvr Currency
     /// </summary>
-    public class MvrCurrency : EasyCurrency, ICurrency
+    public class MvrCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static MvrCurrency()
         {
-            Info = EasyCurrency.From(("ރ.", CurrencyCodes.MVR, "462", "Maldivian Rufiyaa"));
+            Info = Currency.From(("ރ.", CurrencyCodes.MVR, "462", "Maldivian Rufiyaa", "laari"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

@@ -3,14 +3,14 @@
     /// <summary>
     /// Ang Currency
     /// </summary>
-    public class AngCurrency : EasyCurrency, ICurrency
+    public class AngCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static AngCurrency()
         {
-            Info = EasyCurrency.From(("NAƒ", CurrencyCodes.ANG, "532", "Netherlands Antillean guilder"));
+            Info = Currency.From(("NAƒ", CurrencyCodes.ANG, "532", "Netherlands Antillean guilder", "cent"));
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

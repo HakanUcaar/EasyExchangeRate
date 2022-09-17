@@ -1,17 +1,17 @@
-namespace EasyExchangeRate.Common
+﻿namespace EasyExchangeRate.Common
 {
     /// <summary>
     /// Hkd Currency
     /// </summary>
-    public class HkdCurrency : EasyCurrency, ICurrency
+    public class HkdCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static HkdCurrency()
         {
-            Info = EasyCurrency.From(("$", CurrencyCodes.HKD, "344", "Hong Kong Dollar"));
+            Info = Currency.From(("$", CurrencyCodes.HKD, "344", "Hong Kong Dollar", "仙"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

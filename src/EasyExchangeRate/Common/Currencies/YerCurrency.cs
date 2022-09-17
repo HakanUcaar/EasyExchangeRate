@@ -3,15 +3,15 @@ namespace EasyExchangeRate.Common
     /// <summary>
     /// Yer Currency
     /// </summary>
-    public class YerCurrency : EasyCurrency, ICurrency
+    public class YerCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static YerCurrency()
         {
-            Info = EasyCurrency.From(("ر.ي.", CurrencyCodes.YER, "886", "Yemeni Rial"));
+            Info = Currency.From(("ر.ي.", CurrencyCodes.YER, "886", "Yemeni Rial", "fils"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

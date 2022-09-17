@@ -3,15 +3,15 @@ namespace EasyExchangeRate.Common
     /// <summary>
     /// Kes Currency
     /// </summary>
-    public class KesCurrency : EasyCurrency, ICurrency
+    public class KesCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static KesCurrency()
         {
-            Info = EasyCurrency.From(("Ksh", CurrencyCodes.KES, "404", "Kenyan Shilling"));
+            Info = Currency.From(("Ksh", CurrencyCodes.KES, "404", "Kenyan Shilling", "cent"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

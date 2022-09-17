@@ -1,14 +1,14 @@
 namespace EasyExchangeRate.Common
 {
-    public class PhpCurrency : EasyCurrency, ICurrency
+    public class PhpCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static PhpCurrency()
         {
-            Info = EasyCurrency.From(("₱", CurrencyCodes.PHP, "608", "Philippine Piso"));
+            Info = Currency.From(("₱", CurrencyCodes.PHP, "608", "Philippine Piso", "sentimo"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

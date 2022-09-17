@@ -3,15 +3,15 @@
     /// <summary>
     /// Btn Currency
     /// </summary>
-    public class BtnCurrency : EasyCurrency, ICurrency
+    public class BtnCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static BtnCurrency()
         {
-            Info = EasyCurrency.From(("Nu.", CurrencyCodes.BTN, "064", "Bhutanese ngultrum"));
+            Info = Currency.From(("Nu.", CurrencyCodes.BTN, "064", "Bhutanese ngultrum", "chetrum"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

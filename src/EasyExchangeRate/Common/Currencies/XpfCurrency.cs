@@ -3,15 +3,15 @@ namespace EasyExchangeRate.Common
     /// <summary>
     /// Xpf Currency
     /// </summary>
-    public class XpfCurrency : EasyCurrency, ICurrency
+    public class XpfCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static XpfCurrency()
         {
-            Info = EasyCurrency.From(("R", CurrencyCodes.ZAR, "710", "South African Rand"));
+            Info = Currency.From(("R", CurrencyCodes.ZAR, "710", "South African Rand", "centime"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

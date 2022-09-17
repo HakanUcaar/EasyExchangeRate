@@ -3,15 +3,15 @@ namespace EasyExchangeRate.Common
     /// <summary>
     /// Lsl Currency
     /// </summary>
-    public class LslCurrency : EasyCurrency, ICurrency
+    public class LslCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static LslCurrency()
         {
-            Info = EasyCurrency.From(("L", CurrencyCodes.LSL, "426", "Lesotho loti"));
+            Info = Currency.From(("L", CurrencyCodes.LSL, "426", "Lesotho loti", "sente"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

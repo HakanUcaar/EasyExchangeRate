@@ -3,15 +3,15 @@
     /// <summary>
     /// Brl Currency
     /// </summary>
-    public class BrlCurrency : EasyCurrency, ICurrency
+    public class BrlCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static BrlCurrency()
         {
-            Info = EasyCurrency.From(("R$", CurrencyCodes.BRL, "986", "Brazilian real"));
+            Info = Currency.From(("R$", CurrencyCodes.BRL, "986", "Brazilian real", "centavo"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

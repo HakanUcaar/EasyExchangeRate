@@ -3,15 +3,15 @@ namespace EasyExchangeRate.Common
     /// <summary>
     /// Mkd Currency
     /// </summary>
-    public class MkdCurrency : EasyCurrency, ICurrency
+    public class MkdCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static MkdCurrency()
         {
-            Info = EasyCurrency.From(("ден", CurrencyCodes.MKD, "807", "Macedonian Denar"));
+            Info = Currency.From(("ден", CurrencyCodes.MKD, "807", "Macedonian Denar", "deni"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

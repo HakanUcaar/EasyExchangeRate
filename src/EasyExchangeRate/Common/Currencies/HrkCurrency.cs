@@ -3,15 +3,15 @@ namespace EasyExchangeRate.Common
     /// <summary>
     /// Hrk Currency
     /// </summary>
-    public class HrkCurrency : EasyCurrency, ICurrency
+    public class HrkCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static HrkCurrency()
         {
-            Info = EasyCurrency.From(("kn", CurrencyCodes.HRK, "191", "Croatian Kuna"));
+            Info = Currency.From(("kn", CurrencyCodes.HRK, "191", "Croatian Kuna", "lipa"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

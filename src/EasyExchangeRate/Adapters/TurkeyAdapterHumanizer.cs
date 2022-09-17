@@ -12,9 +12,9 @@ namespace EasyExchangeRate.Adapter
 
     public class DynamicResult
     {
-        public List<EasyRate> Rates { get; set; } = new List<EasyRate>();
-        public EasyRate BaseRate { get; set; }
-        public List<EasyRate> TargetRates { get; set; } = new List<EasyRate>();
+        public List<Rate> Rates { get; set; } = new List<Rate>();
+        public Rate BaseRate { get; set; }
+        public List<Rate> TargetRates { get; set; } = new List<Rate>();
         public object Currencies { get; set; }
     }
 
@@ -39,7 +39,7 @@ namespace EasyExchangeRate.Adapter
             Result = res;
         }
 
-        private TurkeyAdapterHumanizer Build(EasyRate rate = null, List<EasyCurrency> currencies = null)
+        private TurkeyAdapterHumanizer Build(Rate rate = null, List<Currency> currencies = null)
         {
             if (Result.IsNull())
             {

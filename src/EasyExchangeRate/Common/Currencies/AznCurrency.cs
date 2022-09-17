@@ -3,15 +3,15 @@
     /// <summary>
     /// Azn Currency
     /// </summary>
-    public class AznCurrency : EasyCurrency, ICurrency
+    public class AznCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static AznCurrency()
         {
-            Info = EasyCurrency.From(("₼", CurrencyCodes.AZN, "944", "Azerbaijani manat"));
+            Info = Currency.From(("₼", CurrencyCodes.AZN, "944", "Azerbaijani manat", "qəpik"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

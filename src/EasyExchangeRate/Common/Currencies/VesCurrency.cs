@@ -3,15 +3,15 @@ namespace EasyExchangeRate.Common
     /// <summary>
     /// Ves Currency
     /// </summary>
-    public class VesCurrency : EasyCurrency, ICurrency
+    public class VesCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static VesCurrency()
         {
-            Info = EasyCurrency.From(("Bs.S", CurrencyCodes.VES, "928", "Venezuelan Bolívar"));
+            Info = Currency.From(("Bs.S", CurrencyCodes.VES, "928", "Venezuelan Bolívar",""));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

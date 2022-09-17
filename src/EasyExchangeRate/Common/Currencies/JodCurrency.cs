@@ -3,15 +3,15 @@ namespace EasyExchangeRate.Common
     /// <summary>
     /// Jod Currency
     /// </summary>
-    public class JodCurrency : EasyCurrency, ICurrency
+    public class JodCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static JodCurrency()
         {
-            Info = EasyCurrency.From(("د.ا.‏", CurrencyCodes.JOD, "400", "Jordanian Dinar"));
+            Info = Currency.From(("د.ا.‏", CurrencyCodes.JOD, "400", "Jordanian Dinar", "qirsh"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

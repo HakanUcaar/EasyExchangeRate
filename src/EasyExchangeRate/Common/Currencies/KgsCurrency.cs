@@ -3,15 +3,15 @@ namespace EasyExchangeRate.Common
     /// <summary>
     /// Kgs Currency
     /// </summary>
-    public class KgsCurrency : EasyCurrency, ICurrency
+    public class KgsCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static KgsCurrency()
         {
-            Info = EasyCurrency.From(("сом", CurrencyCodes.KGS, "417", "Kyrgystani Som"));
+            Info = Currency.From(("сом", CurrencyCodes.KGS, "417", "Kyrgystani Som", "tyiyn"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

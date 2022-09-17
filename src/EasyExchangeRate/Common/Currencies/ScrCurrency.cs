@@ -1,14 +1,14 @@
 namespace EasyExchangeRate.Common
 {
-    public class ScrCurrency : EasyCurrency, ICurrency
+    public class ScrCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static ScrCurrency()
         {
-            Info = EasyCurrency.From(("SCR", CurrencyCodes.SCR, "690", "Seychelles rupee"));
+            Info = Currency.From(("SCR", CurrencyCodes.SCR, "690", "Seychelles rupee", "cent"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

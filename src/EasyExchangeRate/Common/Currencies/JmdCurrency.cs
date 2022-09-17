@@ -3,15 +3,15 @@ namespace EasyExchangeRate.Common
     /// <summary>
     /// Jmd Currency
     /// </summary>
-    public class JmdCurrency : EasyCurrency, ICurrency
+    public class JmdCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static JmdCurrency()
         {
-            Info = EasyCurrency.From(("$", CurrencyCodes.JMD, "388", "Jamaican Dollar"));
+            Info = Currency.From(("$", CurrencyCodes.JMD, "388", "Jamaican Dollar", "cent"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

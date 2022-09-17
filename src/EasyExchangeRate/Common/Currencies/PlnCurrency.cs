@@ -1,14 +1,14 @@
 namespace EasyExchangeRate.Common
 {
-    public class PlnCurrency : EasyCurrency, ICurrency
+    public class PlnCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static PlnCurrency()
         {
-            Info = EasyCurrency.From(("zł", CurrencyCodes.PLN, "985", "Polish Zloty"));
+            Info = Currency.From(("zł", CurrencyCodes.PLN, "985", "Polish Zloty", "grosz"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

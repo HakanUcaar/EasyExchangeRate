@@ -3,15 +3,15 @@
     /// <summary>
     /// Bob Currency
     /// </summary>
-    public class BobCurrency : EasyCurrency, ICurrency
+    public class BobCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static BobCurrency()
         {
-            Info = EasyCurrency.From(("Bs", CurrencyCodes.BOB, "068", "Bolivian boliviano"));
+            Info = Currency.From(("Bs", CurrencyCodes.BOB, "068", "Bolivian boliviano", "centavo"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

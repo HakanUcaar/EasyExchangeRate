@@ -3,15 +3,15 @@ namespace EasyExchangeRate.Common
     /// <summary>
     /// Mzn Currency
     /// </summary>
-    public class MznCurrency : EasyCurrency, ICurrency
+    public class MznCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static MznCurrency()
         {
-            Info = EasyCurrency.From(("MT", CurrencyCodes.MZN, "943", "Mozambican metical"));
+            Info = Currency.From(("MT", CurrencyCodes.MZN, "943", "Mozambican metical", "centavo"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

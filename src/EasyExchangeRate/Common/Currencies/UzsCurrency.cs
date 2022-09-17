@@ -3,15 +3,15 @@ namespace EasyExchangeRate.Common
     /// <summary>
     /// Uzs Currency
     /// </summary>
-    public class UzsCurrency : EasyCurrency, ICurrency
+    public class UzsCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static UzsCurrency()
         {
-            Info = EasyCurrency.From(("сўм", CurrencyCodes.UZS, "860", "Uzbekistani Som"));
+            Info = Currency.From(("сўм", CurrencyCodes.UZS, "860", "Uzbekistani Som", "tiyin"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

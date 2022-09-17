@@ -3,15 +3,15 @@ namespace EasyExchangeRate.Common
     /// <summary>
     /// Ghs Currency
     /// </summary>
-    public class GhsCurrency : EasyCurrency, ICurrency
+    public class GhsCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static GhsCurrency()
         {
-            Info = EasyCurrency.From(("GH₵", CurrencyCodes.GHS, "936", "Ghanaian cedi"));
+            Info = Currency.From(("GH₵", CurrencyCodes.GHS, "936", "Ghanaian cedi", "pesewa"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

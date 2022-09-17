@@ -3,15 +3,15 @@ namespace EasyExchangeRate.Common
     /// <summary>
     /// Zar Currency
     /// </summary>
-    public class ZarCurrency : EasyCurrency, ICurrency
+    public class ZarCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static ZarCurrency()
         {
-            Info = EasyCurrency.From(("", CurrencyCodes.XPF, "953", "CFP franc"));
+            Info = Currency.From(("", CurrencyCodes.XPF, "953", "CFP franc", "cent"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

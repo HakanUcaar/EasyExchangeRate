@@ -3,15 +3,15 @@
     /// <summary>
     /// Fkp Currency
     /// </summary>
-    public class FkpCurrency : EasyCurrency, ICurrency
+    public class FkpCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static FkpCurrency()
         {
-            Info = EasyCurrency.From(("£", CurrencyCodes.FKP, "238", "Falkland Islands pound"));
+            Info = Currency.From(("£", CurrencyCodes.FKP, "238", "Falkland Islands pound", "penny"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

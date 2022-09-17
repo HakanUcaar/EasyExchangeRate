@@ -3,15 +3,15 @@ namespace EasyExchangeRate.Common
     /// <summary>
     /// Vuv Currency
     /// </summary>
-    public class VuvCurrency : EasyCurrency, ICurrency
+    public class VuvCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static VuvCurrency()
         {
-            Info = EasyCurrency.From(("VT", CurrencyCodes.VUV, "548", "Vanuatu vatu"));
+            Info = Currency.From(("VT", CurrencyCodes.VUV, "548", "Vanuatu vatu",""));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

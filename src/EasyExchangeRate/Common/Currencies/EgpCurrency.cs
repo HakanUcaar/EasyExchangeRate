@@ -3,15 +3,15 @@
     /// <summary>
     /// Egp Currency
     /// </summary>
-    public class EgpCurrency : EasyCurrency, ICurrency
+    public class EgpCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static EgpCurrency()
         {
-            Info = EasyCurrency.From(("ج.م.", CurrencyCodes.EGP, "818", "Egyptian pound"));
+            Info = Currency.From(("ج.م.", CurrencyCodes.EGP, "818", "Egyptian pound", "قرش"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

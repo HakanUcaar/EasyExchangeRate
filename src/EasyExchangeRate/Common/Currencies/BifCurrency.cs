@@ -3,15 +3,15 @@
     /// <summary>
     /// Bif Currency
     /// </summary>
-    public class BifCurrency : EasyCurrency, ICurrency
+    public class BifCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static BifCurrency()
         {
-            Info = EasyCurrency.From(("FBu", CurrencyCodes.BIF, "108", "Burundian franc"));
+            Info = Currency.From(("FBu", CurrencyCodes.BIF, "108", "Burundian franc", "centime"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

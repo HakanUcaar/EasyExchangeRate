@@ -3,15 +3,15 @@ namespace EasyExchangeRate.Common
     /// <summary>
     /// Ugx Currency
     /// </summary>
-    public class UgxCurrency : EasyCurrency, ICurrency
+    public class UgxCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static UgxCurrency()
         {
-            Info = EasyCurrency.From(("USh", CurrencyCodes.UGX, "800", "Ugandan shilling"));
+            Info = Currency.From(("USh", CurrencyCodes.UGX, "800", "Ugandan shilling", "cent"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

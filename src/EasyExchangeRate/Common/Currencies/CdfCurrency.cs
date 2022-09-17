@@ -3,15 +3,15 @@
     /// <summary>
     /// Cdf Currency
     /// </summary>
-    public class CdfCurrency : EasyCurrency, ICurrency
+    public class CdfCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static CdfCurrency()
         {
-            Info = EasyCurrency.From(("FC", CurrencyCodes.CDF, "976", "Congolese franc"));
+            Info = Currency.From(("FC", CurrencyCodes.CDF, "976", "Congolese franc", "centime"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

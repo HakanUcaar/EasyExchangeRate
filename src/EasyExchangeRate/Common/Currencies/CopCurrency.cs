@@ -3,15 +3,15 @@
     /// <summary>
     /// Cop Currency
     /// </summary>
-    public class CopCurrency : EasyCurrency, ICurrency
+    public class CopCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static CopCurrency()
         {
-            Info = EasyCurrency.From(("$", CurrencyCodes.COP, "170", "Colombian peso"));
+            Info = Currency.From(("$", CurrencyCodes.COP, "170", "Colombian peso", "centavo"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

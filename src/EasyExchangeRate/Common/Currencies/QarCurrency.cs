@@ -1,14 +1,14 @@
 namespace EasyExchangeRate.Common
 {
-    public class QarCurrency : EasyCurrency, ICurrency
+    public class QarCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static QarCurrency()
         {
-            Info = EasyCurrency.From(("ر.ق.", CurrencyCodes.QAR, "634", "Qatari Rial"));
+            Info = Currency.From(("ر.ق.", CurrencyCodes.QAR, "634", "Qatari Rial", "dirham"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

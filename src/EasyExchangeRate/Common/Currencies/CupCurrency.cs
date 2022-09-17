@@ -3,15 +3,15 @@
     /// <summary>
     /// Cup Currency
     /// </summary>
-    public class CupCurrency : EasyCurrency, ICurrency
+    public class CupCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static CupCurrency()
         {
-            Info = EasyCurrency.From(("$", CurrencyCodes.CUP, "192", "Cuban peso"));
+            Info = Currency.From(("$", CurrencyCodes.CUP, "192", "Cuban peso", "centavo"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

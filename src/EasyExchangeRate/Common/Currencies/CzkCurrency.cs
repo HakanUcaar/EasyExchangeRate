@@ -3,15 +3,15 @@
     /// <summary>
     /// Czk Currency
     /// </summary>
-    public class CzkCurrency : EasyCurrency, ICurrency
+    public class CzkCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static CzkCurrency()
         {
-            Info = EasyCurrency.From(("Kč", CurrencyCodes.CZK, "203", "Czech koruna"));
+            Info = Currency.From(("Kč", CurrencyCodes.CZK, "203", "Czech koruna", "haléř"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

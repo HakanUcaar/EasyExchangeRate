@@ -3,14 +3,14 @@
     /// <summary>
     /// Afghan afghani
     /// </summary>
-    public class AfnCurrency : EasyCurrency, ICurrency
+    public class AfnCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static AfnCurrency()
         {
-            Info = EasyCurrency.From(("؋", CurrencyCodes.AFN, "971", "Afghan afghani"));
+            Info = Currency.From(("؋", CurrencyCodes.AFN, "971", "Afghan afghani", "pul"));
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

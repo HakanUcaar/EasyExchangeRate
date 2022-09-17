@@ -3,15 +3,15 @@ namespace EasyExchangeRate.Common
     /// <summary>
     /// Isk Currency
     /// </summary>
-    public class IskCurrency : EasyCurrency, ICurrency
+    public class IskCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static IskCurrency()
         {
-            Info = EasyCurrency.From(("kr", CurrencyCodes.ISK, "352", "Icelandic Króna"));
+            Info = Currency.From(("kr", CurrencyCodes.ISK, "352", "Icelandic Króna", "eyrir"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

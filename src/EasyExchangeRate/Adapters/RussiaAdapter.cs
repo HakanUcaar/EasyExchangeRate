@@ -20,7 +20,7 @@ namespace EasyExchangeRate.Adapter
             Unit = 1
         };
 
-        public override EasyCurrency BaseCurrency => RubCurrency.Info;
+        public override Currency BaseCurrency => RubCurrency.Info;
         public RussiaAdapter()
         {
             System.Text.EncodingProvider ppp = System.Text.CodePagesEncodingProvider.Instance;
@@ -62,7 +62,7 @@ namespace EasyExchangeRate.Adapter
             AddCurrency(JpyCurrency.Info);
         }
 
-        public override List<EasyRate> GetRates()
+        public override List<Rate> GetRates()
         {
             var doc = new XmlDocument();
             doc.Load(@Source.Url);
@@ -73,12 +73,12 @@ namespace EasyExchangeRate.Adapter
             {
                 foreach (XmlNode node in nodes)
                 {
-                    this.Currencies.Find(x => x.Value.IsoCode.ToString() == node.SelectSingleNode("CharCode").InnerText).Do(currency =>
+                    this.Currencies.Find(x => x.IsoCode.ToString() == node.SelectSingleNode("CharCode").InnerText).Do(currency =>
                     {
                         var val = node.SelectSingleNode("Value").InnerText;
                         var rate = Decimal.Parse((String.IsNullOrEmpty(val) ? "0" : val.Replace(",", ".")), NumberStyles.Any, new CultureInfo("en-Us")) / Source.Unit;
                         //this.Rates.Add(EasyMoney.From((rate, currency)));
-                        Rates.Add(EasyRate.From((EasyMoney.From((rate, BaseCurrency)), currency)));
+                        Rates.Add(Rate.From((Money.From((rate, BaseCurrency)), currency)));
                     });
                 }
             }

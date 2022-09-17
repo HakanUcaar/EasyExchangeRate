@@ -3,15 +3,15 @@
     /// <summary>
     /// Cad Currency
     /// </summary>
-    public class CadCurrency : EasyCurrency, ICurrency
+    public class CadCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static CadCurrency()
         {
-            Info = EasyCurrency.From(("$", CurrencyCodes.CAD, "124", "Canadian dollar"));
+            Info = Currency.From(("$", CurrencyCodes.CAD, "124", "Canadian dollar", "colloquial"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

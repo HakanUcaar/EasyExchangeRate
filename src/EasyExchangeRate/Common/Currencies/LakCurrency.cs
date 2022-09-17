@@ -3,15 +3,15 @@ namespace EasyExchangeRate.Common
     /// <summary>
     /// Lak Currency
     /// </summary>
-    public class LakCurrency : EasyCurrency, ICurrency
+    public class LakCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static LakCurrency()
         {
-            Info = EasyCurrency.From(("₭", CurrencyCodes.LAK, "418", "Laotian Kip"));
+            Info = Currency.From(("₭", CurrencyCodes.LAK, "418", "Laotian Kip", "att"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

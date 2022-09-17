@@ -3,15 +3,15 @@ namespace EasyExchangeRate.Common
     /// <summary>
     /// Kyd Currency
     /// </summary>
-    public class KydCurrency : EasyCurrency, ICurrency
+    public class KydCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static KydCurrency()
         {
-            Info = EasyCurrency.From(("$", CurrencyCodes.KYD, "136", "Cayman Islands dollar"));
+            Info = Currency.From(("$", CurrencyCodes.KYD, "136", "Cayman Islands dollar", "cent"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

@@ -3,15 +3,15 @@
     /// <summary>
     /// Crc Currency
     /// </summary>
-    public class CrcCurrency : EasyCurrency, ICurrency
+    public class CrcCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static CrcCurrency()
         {
-            Info = EasyCurrency.From(("₡", CurrencyCodes.CRC, "188", "Costa Rican colon"));
+            Info = Currency.From(("₡", CurrencyCodes.CRC, "188", "Costa Rican colon", "céntimo"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

@@ -3,15 +3,15 @@
     /// <summary>
     /// Cny Currency
     /// </summary>
-    public class CnyCurrency : EasyCurrency, ICurrency
+    public class CnyCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static CnyCurrency()
         {
-            Info = EasyCurrency.From(("¥", CurrencyCodes.CNY, "156", "Renminbi"));
+            Info = Currency.From(("¥", CurrencyCodes.CNY, "156", "Renminbi", "分"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

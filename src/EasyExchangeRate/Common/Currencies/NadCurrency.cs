@@ -3,15 +3,15 @@ namespace EasyExchangeRate.Common
     /// <summary>
     /// Nad Currency
     /// </summary>
-    public class NadCurrency : EasyCurrency, ICurrency
+    public class NadCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static NadCurrency()
         {
-            Info = EasyCurrency.From(("$", CurrencyCodes.NAD, "516", "Namibian dollar"));
+            Info = Currency.From(("$", CurrencyCodes.NAD, "516", "Namibian dollar", "cent"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

@@ -3,15 +3,15 @@ namespace EasyExchangeRate.Common
     /// <summary>
     /// Kwd Currency
     /// </summary>
-    public class KwdCurrency : EasyCurrency, ICurrency
+    public class KwdCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static KwdCurrency()
         {
-            Info = EasyCurrency.From(("د.ك.", CurrencyCodes.KWD, "414", "Kuwaiti Dinar"));
+            Info = Currency.From(("د.ك.", CurrencyCodes.KWD, "414", "Kuwaiti Dinar", "fils"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

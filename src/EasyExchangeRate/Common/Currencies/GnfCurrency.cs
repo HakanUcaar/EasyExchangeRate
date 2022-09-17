@@ -3,15 +3,15 @@ namespace EasyExchangeRate.Common
     /// <summary>
     /// Gnf Currency
     /// </summary>
-    public class GnfCurrency : EasyCurrency, ICurrency
+    public class GnfCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static GnfCurrency()
         {
-            Info = EasyCurrency.From(("FG", CurrencyCodes.GNF, "324", "Guinean franc"));
+            Info = Currency.From(("FG", CurrencyCodes.GNF, "324", "Guinean franc", "centime"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

@@ -3,15 +3,15 @@ namespace EasyExchangeRate.Common
     /// <summary>
     /// Gel Currency
     /// </summary>
-    public class GelCurrency : EasyCurrency, ICurrency
+    public class GelCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static GelCurrency()
         {
-            Info = EasyCurrency.From(("₾", CurrencyCodes.GEL, "981", "Georgian Lari"));
+            Info = Currency.From(("₾", CurrencyCodes.GEL, "981", "Georgian Lari", "tetri"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

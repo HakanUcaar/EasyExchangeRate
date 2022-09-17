@@ -1,14 +1,14 @@
 namespace EasyExchangeRate.Common
 {
-    public class TtdCurrency : EasyCurrency, ICurrency
+    public class TtdCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static TtdCurrency()
         {
-            Info = EasyCurrency.From(("$", CurrencyCodes.TTD, "780", "Trinidad and Tobago Dollar"));
+            Info = Currency.From(("$", CurrencyCodes.TTD, "780", "Trinidad and Tobago Dollar", "cent"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

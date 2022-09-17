@@ -3,15 +3,15 @@
     /// <summary>
     /// Bam Currency
     /// </summary>
-    public class BamCurrency : EasyCurrency, ICurrency
+    public class BamCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static BamCurrency()
         {
-            Info= EasyCurrency.From(("КМ", CurrencyCodes.BAM, "977", "Bosnia and Herzegovina convertible mark"));
+            Info= Currency.From(("КМ", CurrencyCodes.BAM, "977", "Bosnia and Herzegovina convertible mark", "fening"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

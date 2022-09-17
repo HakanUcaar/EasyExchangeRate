@@ -3,15 +3,15 @@ namespace EasyExchangeRate.Common
     /// <summary>
     /// Mwk Currency
     /// </summary>
-    public class MwkCurrency : EasyCurrency, ICurrency
+    public class MwkCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static MwkCurrency()
         {
-            Info = EasyCurrency.From(("K", CurrencyCodes.MWK, "454", "Malawian kwacha"));
+            Info = Currency.From(("K", CurrencyCodes.MWK, "454", "Malawian kwacha", "tambala"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

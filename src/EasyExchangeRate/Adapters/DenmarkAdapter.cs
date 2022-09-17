@@ -17,7 +17,7 @@ namespace EasyExchangeRate.Adapter
             Unit = 100
         };
 
-        public override EasyCurrency BaseCurrency => DkkCurrency.Info;
+        public override Currency BaseCurrency => DkkCurrency.Info;
         public DenmarkAdapter()
         {
             AddCurrency(UsdCurrency.Info);
@@ -53,7 +53,7 @@ namespace EasyExchangeRate.Adapter
             AddCurrency(ZarCurrency.Info);
         }
 
-        public override List<EasyRate> GetRates()
+        public override List<Rate> GetRates()
         {
             var doc = new XmlDocument();
             doc.Load(Source.Url);
@@ -64,11 +64,11 @@ namespace EasyExchangeRate.Adapter
             {
                 foreach (XmlNode node in nodes)
                 {
-                    this.Currencies.Find(x => x.Value.IsoCode.ToString() == node.Attributes["code"].Value).Do(currency =>
+                    this.Currencies.Find(x => x.IsoCode.ToString() == node.Attributes["code"].Value).Do(currency =>
                     {
                         var rate = Decimal.Parse(node.Attributes["rate"].Value.Replace(",", "."), NumberStyles.Currency, new CultureInfo("en-Us")) / Source.Unit;
                         //this.Rates.Add(EasyMoney.From((rate, currency)));
-                        Rates.Add(EasyRate.From((EasyMoney.From((rate, BaseCurrency)), currency)));
+                        Rates.Add(Rate.From((Money.From((rate, BaseCurrency)), currency)));
                     });
                 }
             }

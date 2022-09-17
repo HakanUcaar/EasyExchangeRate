@@ -3,15 +3,15 @@
     /// <summary>
     /// Clp Currency
     /// </summary>
-    public class ClpCurrency : EasyCurrency, ICurrency
+    public class ClpCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static ClpCurrency()
         {
-            Info = EasyCurrency.From(("$", CurrencyCodes.CLP, "152", "Chilean peso"));
+            Info = Currency.From(("$", CurrencyCodes.CLP, "152", "Chilean peso", "centavos"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

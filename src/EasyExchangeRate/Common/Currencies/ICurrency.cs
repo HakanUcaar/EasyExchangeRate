@@ -8,6 +8,6 @@ namespace EasyExchangeRate.Common
 {
     public interface ICurrency
     {
-        EasyCurrency GetInfo();
+        Currency GetInfo();
     }
 }

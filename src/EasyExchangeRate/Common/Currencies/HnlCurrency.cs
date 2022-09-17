@@ -3,15 +3,15 @@ namespace EasyExchangeRate.Common
     /// <summary>
     /// Hnl Currency
     /// </summary>
-    public class HnlCurrency : EasyCurrency, ICurrency
+    public class HnlCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static HnlCurrency()
         {
-            Info = EasyCurrency.From(("L", CurrencyCodes.HNL, "340", "Honduran Lempira"));
+            Info = Currency.From(("L", CurrencyCodes.HNL, "340", "Honduran Lempira", "centavo"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

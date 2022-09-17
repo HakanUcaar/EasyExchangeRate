@@ -1,14 +1,14 @@
 namespace EasyExchangeRate.Common
 {
-    public class TwdCurrency : EasyCurrency, ICurrency
+    public class TwdCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static TwdCurrency()
         {
-            Info = EasyCurrency.From(("NT$", CurrencyCodes.TWD, "901", "New Taiwan Dollar"));
+            Info = Currency.From(("NT$", CurrencyCodes.TWD, "901", "New Taiwan Dollar", "cent"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

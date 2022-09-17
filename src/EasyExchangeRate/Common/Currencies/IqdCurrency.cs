@@ -3,15 +3,15 @@ namespace EasyExchangeRate.Common
     /// <summary>
     /// Iqd Currency
     /// </summary>
-    public class IqdCurrency : EasyCurrency, ICurrency
+    public class IqdCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static IqdCurrency()
         {
-            Info = EasyCurrency.From(("د.ع.", CurrencyCodes.IQD, "368", "Iraqi Dinar"));
+            Info = Currency.From(("د.ع.", CurrencyCodes.IQD, "368", "Iraqi Dinar", "fils"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

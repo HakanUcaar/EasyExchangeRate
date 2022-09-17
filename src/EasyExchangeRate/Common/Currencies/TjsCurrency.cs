@@ -1,14 +1,14 @@
 namespace EasyExchangeRate.Common
 {
-    public class TjsCurrency : EasyCurrency, ICurrency
+    public class TjsCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static TjsCurrency()
         {
-            Info = EasyCurrency.From(("смн", CurrencyCodes.TJS, "972", "Tajikistani Somoni"));
+            Info = Currency.From(("смн", CurrencyCodes.TJS, "972", "Tajikistani Somoni", "diram"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

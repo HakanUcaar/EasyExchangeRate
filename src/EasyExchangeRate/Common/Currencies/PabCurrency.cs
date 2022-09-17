@@ -1,14 +1,14 @@
 namespace EasyExchangeRate.Common
 {
-    public class PabCurrency : EasyCurrency, ICurrency
+    public class PabCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static PabCurrency()
         {
-            Info = EasyCurrency.From(("B/.", CurrencyCodes.PAB, "590", "Panamanian Balboa"));
+            Info = Currency.From(("B/.", CurrencyCodes.PAB, "590", "Panamanian Balboa", "centésimo"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

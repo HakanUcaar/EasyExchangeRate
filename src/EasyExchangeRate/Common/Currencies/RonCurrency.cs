@@ -1,14 +1,14 @@
 namespace EasyExchangeRate.Common
 {
-    public class RonCurrency : EasyCurrency, ICurrency
+    public class RonCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static RonCurrency()
         {
-            Info = EasyCurrency.From(("lei", CurrencyCodes.RON, "946", "Romanian Leu"));
+            Info = Currency.From(("lei", CurrencyCodes.RON, "946", "Romanian Leu", "bani"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

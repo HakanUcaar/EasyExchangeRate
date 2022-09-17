@@ -3,15 +3,15 @@
     /// <summary>
     /// Bnd Currency
     /// </summary>
-    public class BndCurrency : EasyCurrency, ICurrency
+    public class BndCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static BndCurrency()
         {
-            Info = EasyCurrency.From(("$", CurrencyCodes.BND, "096", "Brunei dollar"));
+            Info = Currency.From(("$", CurrencyCodes.BND, "096", "Brunei dollar", "sen"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

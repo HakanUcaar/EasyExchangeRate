@@ -3,15 +3,15 @@ namespace EasyExchangeRate.Common
     /// <summary>
     /// Mnt Currency
     /// </summary>
-    public class MntCurrency : EasyCurrency, ICurrency
+    public class MntCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static MntCurrency()
         {
-            Info = EasyCurrency.From(("₮", CurrencyCodes.MNT, "496", "Mongolian Tugrik"));
+            Info = Currency.From(("₮", CurrencyCodes.MNT, "496", "Mongolian Tugrik", "мөнгө"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

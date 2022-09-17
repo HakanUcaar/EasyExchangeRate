@@ -3,15 +3,15 @@ namespace EasyExchangeRate.Common
     /// <summary>
     /// Omr Currency
     /// </summary>
-    public class OmrCurrency : EasyCurrency, ICurrency
+    public class OmrCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static OmrCurrency()
         {
-            Info = EasyCurrency.From(("ر.ع.", CurrencyCodes.OMR, "512", "Omani Rial"));
+            Info = Currency.From(("ر.ع.", CurrencyCodes.OMR, "512", "Omani Rial", "baisa"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

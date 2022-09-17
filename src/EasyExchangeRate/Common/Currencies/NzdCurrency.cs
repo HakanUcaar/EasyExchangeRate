@@ -3,15 +3,15 @@ namespace EasyExchangeRate.Common
     /// <summary>
     /// Nzd Currency
     /// </summary>
-    public class NzdCurrency : EasyCurrency, ICurrency
+    public class NzdCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static NzdCurrency()
         {
-            Info = EasyCurrency.From(("$", CurrencyCodes.NZD, "554", "New Zealand Dollar"));
+            Info = Currency.From(("$", CurrencyCodes.NZD, "554", "New Zealand Dollar", "cent"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

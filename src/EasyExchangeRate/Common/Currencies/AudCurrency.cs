@@ -3,15 +3,15 @@
     /// <summary>
     /// Aud Currency
     /// </summary>
-    public class AudCurrency : EasyCurrency, ICurrency
+    public class AudCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static AudCurrency()
         {
-            Info = EasyCurrency.From(("$", CurrencyCodes.AUD, "036", "Australian dollar"));
+            Info = Currency.From(("$", CurrencyCodes.AUD, "036", "Australian dollar", "cent"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

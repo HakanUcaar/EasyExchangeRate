@@ -1,14 +1,14 @@
 namespace EasyExchangeRate.Common
 {
-    public class SarCurrency : EasyCurrency, ICurrency
+    public class SarCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static SarCurrency()
         {
-            Info = EasyCurrency.From(("ر.س.", CurrencyCodes.SAR, "682", "Saudi Riyal"));
+            Info = Currency.From(("ر.س.", CurrencyCodes.SAR, "682", "Saudi Riyal", "halala"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

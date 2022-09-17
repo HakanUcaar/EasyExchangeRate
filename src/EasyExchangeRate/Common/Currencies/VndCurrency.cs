@@ -3,15 +3,15 @@ namespace EasyExchangeRate.Common
     /// <summary>
     /// Vnd Currency
     /// </summary>
-    public class VndCurrency : EasyCurrency, ICurrency
+    public class VndCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static VndCurrency()
         {
-            Info = EasyCurrency.From(("₫", CurrencyCodes.VND, "704", "Vietnamese Dong"));
+            Info = Currency.From(("₫", CurrencyCodes.VND, "704", "Vietnamese Dong", "xu"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

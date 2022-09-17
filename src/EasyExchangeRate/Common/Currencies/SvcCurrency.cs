@@ -1,14 +1,14 @@
 ﻿namespace EasyExchangeRate.Common
 {
-    public class SvcCurrency : EasyCurrency, ICurrency
+    public class SvcCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static SvcCurrency()
         {
-            Info = EasyCurrency.From(("₡", CurrencyCodes.SVC, "222", "Salvadoran colón"));
+            Info = Currency.From(("₡", CurrencyCodes.SVC, "222", "Salvadoran colón",""));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

@@ -3,15 +3,15 @@
     /// <summary>
     /// Bmd Currency
     /// </summary>
-    public class BmdCurrency : EasyCurrency, ICurrency
+    public class BmdCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static BmdCurrency()
         {
-            Info = EasyCurrency.From(("$", CurrencyCodes.BMD, "060", "Bermudian dollar"));
+            Info = Currency.From(("$", CurrencyCodes.BMD, "060", "Bermudian dollar", "cent"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

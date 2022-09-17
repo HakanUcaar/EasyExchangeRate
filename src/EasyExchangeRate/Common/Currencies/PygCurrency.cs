@@ -1,14 +1,14 @@
 namespace EasyExchangeRate.Common
 {
-    public class PygCurrency : EasyCurrency, ICurrency
+    public class PygCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static PygCurrency()
         {
-            Info = EasyCurrency.From(("₲", CurrencyCodes.PYG, "600", "Paraguayan Guarani"));
+            Info = Currency.From(("₲", CurrencyCodes.PYG, "600", "Paraguayan Guarani", "céntimo"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

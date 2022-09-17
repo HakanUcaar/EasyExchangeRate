@@ -3,15 +3,15 @@ namespace EasyExchangeRate.Common
     /// <summary>
     /// Mad Currency
     /// </summary>
-    public class MadCurrency : EasyCurrency, ICurrency
+    public class MadCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static MadCurrency()
         {
-            Info = EasyCurrency.From(("د.م.", CurrencyCodes.MAD, "504", "Moroccan Dirham"));
+            Info = Currency.From(("د.م.", CurrencyCodes.MAD, "504", "Moroccan Dirham", "santim"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

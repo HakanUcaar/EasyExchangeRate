@@ -1,14 +1,14 @@
 namespace EasyExchangeRate.Common
 {
-    public class StdCurrency : EasyCurrency, ICurrency
+    public class StdCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static StdCurrency()
         {
-            Info = EasyCurrency.From(("Db", CurrencyCodes.STD, "678", "São Tomé and Príncipe dobra"));
+            Info = Currency.From(("Db", CurrencyCodes.STD, "678", "São Tomé and Príncipe dobra", "cêntimo"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

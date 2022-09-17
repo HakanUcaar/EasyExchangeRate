@@ -3,15 +3,15 @@ namespace EasyExchangeRate.Common
     /// <summary>
     /// Inr Currency
     /// </summary>
-    public class InrCurrency : EasyCurrency, ICurrency
+    public class InrCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static InrCurrency()
         {
-            Info = EasyCurrency.From(("₹", CurrencyCodes.INR, "356", "Indian Rupee"));
+            Info = Currency.From(("₹", CurrencyCodes.INR, "356", "Indian Rupee", "Paisa"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

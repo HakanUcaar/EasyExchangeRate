@@ -3,15 +3,15 @@
     /// <summary>
     /// Bdt Currency
     /// </summary>
-    public class BdtCurrency : EasyCurrency, ICurrency
+    public class BdtCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static BdtCurrency()
         {
-            Info = EasyCurrency.From(("৳", CurrencyCodes.BDT, "050", "Bangladeshi taka"));
+            Info = Currency.From(("৳", CurrencyCodes.BDT, "050", "Bangladeshi taka", "paisa"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

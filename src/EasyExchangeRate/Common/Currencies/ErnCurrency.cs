@@ -3,15 +3,15 @@
     /// <summary>
     /// Ern Currency
     /// </summary>
-    public class ErnCurrency : EasyCurrency, ICurrency
+    public class ErnCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static ErnCurrency()
         {
-            Info = EasyCurrency.From(("Nfk", CurrencyCodes.ERN, "232", "Eritrean nakfa"));
+            Info = Currency.From(("Nfk", CurrencyCodes.ERN, "232", "Eritrean nakfa", "cent"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

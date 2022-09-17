@@ -3,15 +3,15 @@ namespace EasyExchangeRate.Common
     /// <summary>
     /// Xcd Currency
     /// </summary>
-    public class XcdCurrency : EasyCurrency, ICurrency
+    public class XcdCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static XcdCurrency()
         {
-            Info = EasyCurrency.From(("EC$", CurrencyCodes.XCD, "951", "East Caribbean Dollar"));
+            Info = Currency.From(("EC$", CurrencyCodes.XCD, "951", "East Caribbean Dollar", "cent"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

@@ -3,15 +3,15 @@ namespace EasyExchangeRate.Common
     /// <summary>
     /// Khr Currency
     /// </summary>
-    public class KhrCurrency : EasyCurrency, ICurrency
+    public class KhrCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static KhrCurrency()
         {
-            Info = EasyCurrency.From(("៛", CurrencyCodes.KHR, "116", "Cambodian Riel"));
+            Info = Currency.From(("៛", CurrencyCodes.KHR, "116", "Cambodian Riel", "sen"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

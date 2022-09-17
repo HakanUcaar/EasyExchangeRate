@@ -3,15 +3,15 @@
     /// <summary>
     /// Cve Currency
     /// </summary>
-    public class CveCurrency : EasyCurrency, ICurrency
+    public class CveCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static CveCurrency()
         {
-            Info = EasyCurrency.From(("$", CurrencyCodes.CVE, "132", "Cape Verdean escudo"));
+            Info = Currency.From(("$", CurrencyCodes.CVE, "132", "Cape Verdean escudo", "centavo"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

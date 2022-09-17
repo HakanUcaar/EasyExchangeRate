@@ -3,15 +3,15 @@
     /// <summary>
     /// Bzd Currency
     /// </summary>
-    public class BzdCurrency : EasyCurrency, ICurrency
+    public class BzdCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static BzdCurrency()
         {
-            Info = EasyCurrency.From(("$", CurrencyCodes.BZD, "084", "Belize dollar"));
+            Info = Currency.From(("$", CurrencyCodes.BZD, "084", "Belize dollar", "cent"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

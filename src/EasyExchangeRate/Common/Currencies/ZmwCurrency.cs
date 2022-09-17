@@ -3,15 +3,15 @@ namespace EasyExchangeRate.Common
     /// <summary>
     /// Zmw Currency
     /// </summary>
-    public class ZmwCurrency : EasyCurrency, ICurrency
+    public class ZmwCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static ZmwCurrency()
         {
-            Info = EasyCurrency.From(("K", CurrencyCodes.ZMW, "967", "Zambian kwacha"));
+            Info = Currency.From(("K", CurrencyCodes.ZMW, "967", "Zambian kwacha",""));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

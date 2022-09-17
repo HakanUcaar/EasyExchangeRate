@@ -3,15 +3,15 @@ namespace EasyExchangeRate.Common
     /// <summary>
     /// Myr Currency
     /// </summary>
-    public class MyrCurrency : EasyCurrency, ICurrency
+    public class MyrCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static MyrCurrency()
         {
-            Info = EasyCurrency.From(("RM", CurrencyCodes.MYR, "458", "Malaysian Ringgit"));
+            Info = Currency.From(("RM", CurrencyCodes.MYR, "458", "Malaysian Ringgit", "sen"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

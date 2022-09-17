@@ -3,15 +3,15 @@
     /// <summary>
     /// Dzd Currency
     /// </summary>
-    public class DzdCurrency : EasyCurrency, ICurrency
+    public class DzdCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static DzdCurrency()
         {
-            Info = EasyCurrency.From(("د.ج.", CurrencyCodes.DZD, "012", "Algerian dinar"));
+            Info = Currency.From(("د.ج.", CurrencyCodes.DZD, "012", "Algerian dinar", "defunct"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

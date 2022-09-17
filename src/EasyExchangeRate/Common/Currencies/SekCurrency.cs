@@ -1,14 +1,14 @@
 namespace EasyExchangeRate.Common
 {
-    public class SekCurrency : EasyCurrency, ICurrency
+    public class SekCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static SekCurrency()
         {
-            Info =  EasyCurrency.From(("kr", CurrencyCodes.SEK, "752", "Swedish Krona"));
+            Info =  Currency.From(("kr", CurrencyCodes.SEK, "752", "Swedish Krona", "öre"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

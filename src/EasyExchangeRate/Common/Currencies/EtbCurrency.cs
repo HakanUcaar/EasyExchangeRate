@@ -3,15 +3,15 @@
     /// <summary>
     /// Etb Currency
     /// </summary>
-    public class EtbCurrency : EasyCurrency, ICurrency
+    public class EtbCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static EtbCurrency()
         {
-            Info = EasyCurrency.From(("ብር", CurrencyCodes.ETB, "230", "Ethiopian birr"));
+            Info = Currency.From(("ብር", CurrencyCodes.ETB, "230", "Ethiopian birr", "santim"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

@@ -3,15 +3,15 @@ namespace EasyExchangeRate.Common
     /// <summary>
     /// Gip Currency
     /// </summary>
-    public class GipCurrency : EasyCurrency, ICurrency
+    public class GipCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static GipCurrency()
         {
-            Info = EasyCurrency.From(("£", CurrencyCodes.GIP, "292", "Gibraltar pound"));
+            Info = Currency.From(("£", CurrencyCodes.GIP, "292", "Gibraltar pound", "Penny"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

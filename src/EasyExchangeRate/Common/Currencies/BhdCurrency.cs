@@ -3,15 +3,15 @@
     /// <summary>
     /// Bhd Currency
     /// </summary>
-    public class BhdCurrency : EasyCurrency, ICurrency
+    public class BhdCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static BhdCurrency()
         {
-            Info = EasyCurrency.From(("د.ب.", CurrencyCodes.BHD, "048", "Bahraini dinar"));
+            Info = Currency.From(("د.ب.", CurrencyCodes.BHD, "048", "Bahraini dinar", "fils"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

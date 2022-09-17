@@ -3,15 +3,15 @@ namespace EasyExchangeRate.Common
     /// <summary>
     /// Kzt Currency
     /// </summary>
-    public class KztCurrency : EasyCurrency, ICurrency
+    public class KztCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static KztCurrency()
         {
-            Info = EasyCurrency.From(("₸", CurrencyCodes.KZT, "398", "Kazakhstani Tenge"));
+            Info = Currency.From(("₸", CurrencyCodes.KZT, "398", "Kazakhstani Tenge", "тиын"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

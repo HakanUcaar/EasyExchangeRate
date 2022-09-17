@@ -3,15 +3,15 @@ namespace EasyExchangeRate.Common
     /// <summary>
     /// Gyd Currency
     /// </summary>
-    public class GydCurrency : EasyCurrency, ICurrency
+    public class GydCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static GydCurrency()
         {
-            Info = EasyCurrency.From(("$", CurrencyCodes.GYD, "328", "Guyanese dollar"));
+            Info = Currency.From(("$", CurrencyCodes.GYD, "328", "Guyanese dollar", "cent"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

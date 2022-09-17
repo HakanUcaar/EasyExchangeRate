@@ -3,15 +3,15 @@ namespace EasyExchangeRate.Common
     /// <summary>
     /// Syp Currency
     /// </summary>
-    public class SypCurrency : EasyCurrency, ICurrency
+    public class SypCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static SypCurrency()
         {
-            Info = EasyCurrency.From(("ل.س.‏", CurrencyCodes.SYP, "760", "Syrian Pound"));
+            Info = Currency.From(("ل.س.‏", CurrencyCodes.SYP, "760", "Syrian Pound", "piastre"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

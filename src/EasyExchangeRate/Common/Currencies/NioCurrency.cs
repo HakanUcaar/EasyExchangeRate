@@ -3,15 +3,15 @@ namespace EasyExchangeRate.Common
     /// <summary>
     /// Nio Currency
     /// </summary>
-    public class NioCurrency : EasyCurrency, ICurrency
+    public class NioCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static NioCurrency()
         {
-            Info = EasyCurrency.From(("C$", CurrencyCodes.NIO, "558", "Nicaraguan Córdoba"));
+            Info = Currency.From(("C$", CurrencyCodes.NIO, "558", "Nicaraguan Córdoba", "centavo"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

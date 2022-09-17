@@ -3,15 +3,15 @@
     /// <summary>
     /// Dkk Currency
     /// </summary>
-    public class DkkCurrency : EasyCurrency, ICurrency
+    public class DkkCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static DkkCurrency()
         {
-            Info = EasyCurrency.From(("kr.", CurrencyCodes.DKK, "208", "Danish krone"));
+            Info = Currency.From(("kr.", CurrencyCodes.DKK, "208", "Danish krone", "øre"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

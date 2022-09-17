@@ -3,15 +3,15 @@ namespace EasyExchangeRate.Common
     /// <summary>
     /// Huf Currency
     /// </summary>
-    public class HufCurrency : EasyCurrency, ICurrency
+    public class HufCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static HufCurrency()
         {
-            Info = EasyCurrency.From(("Ft", CurrencyCodes.HUF, "348", "Hungarian Forint"));
+            Info = Currency.From(("Ft", CurrencyCodes.HUF, "348", "Hungarian Forint", "fillér"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

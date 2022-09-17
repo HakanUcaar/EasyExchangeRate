@@ -1,14 +1,14 @@
 namespace EasyExchangeRate.Common
 {
-    public class RwfCurrency : EasyCurrency, ICurrency
+    public class RwfCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static RwfCurrency()
         {
-            Info = EasyCurrency.From(("RF", CurrencyCodes.RWF, "646", "Rwandan Franc"));
+            Info = Currency.From(("RF", CurrencyCodes.RWF, "646", "Rwandan Franc", "santime"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

@@ -1,14 +1,14 @@
 namespace EasyExchangeRate.Common
 {
-    public class PgkCurrency : EasyCurrency, ICurrency
+    public class PgkCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static PgkCurrency()
         {
-            Info = EasyCurrency.From(("K", CurrencyCodes.PGK, "598", "Papua New Guinean kina"));
+            Info = Currency.From(("K", CurrencyCodes.PGK, "598", "Papua New Guinean kina", "toea"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

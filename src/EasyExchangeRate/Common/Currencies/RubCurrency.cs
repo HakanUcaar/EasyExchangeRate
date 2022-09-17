@@ -1,14 +1,14 @@
 namespace EasyExchangeRate.Common
 {
-    public class RubCurrency : EasyCurrency, ICurrency
+    public class RubCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static RubCurrency()
         {
-            Info = EasyCurrency.From(("₽", CurrencyCodes.RUB, "643", "Russian Ruble"));
+            Info = Currency.From(("₽", CurrencyCodes.RUB, "643", "Russian Ruble", "копейка"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

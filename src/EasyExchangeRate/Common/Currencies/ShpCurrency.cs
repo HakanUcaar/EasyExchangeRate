@@ -1,14 +1,14 @@
 namespace EasyExchangeRate.Common
 {
-    public class ShpCurrency : EasyCurrency, ICurrency
+    public class ShpCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static ShpCurrency()
         {
-            Info = EasyCurrency.From(("£", CurrencyCodes.SHP, "654", "Saint Helena pound"));
+            Info = Currency.From(("£", CurrencyCodes.SHP, "654", "Saint Helena pound", "penny"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

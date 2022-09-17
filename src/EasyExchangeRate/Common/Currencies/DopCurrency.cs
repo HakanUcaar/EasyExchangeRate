@@ -3,15 +3,15 @@
     /// <summary>
     /// Dop Currency
     /// </summary>
-    public class DopCurrency : EasyCurrency, ICurrency
+    public class DopCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static DopCurrency()
         {
-            Info = EasyCurrency.From(("$", CurrencyCodes.DOP, "214", "Dominican peso"));
+            Info = Currency.From(("$", CurrencyCodes.DOP, "214", "Dominican peso", "centavo"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

@@ -3,15 +3,15 @@
     /// <summary>
     /// Top Currency
     /// </summary>
-    public class TopCurrency : EasyCurrency, ICurrency
+    public class TopCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static TopCurrency()
         {
-            Info = EasyCurrency.From(("T$", CurrencyCodes.TOP, "776", "Tongan paʻanga"));
+            Info = Currency.From(("T$", CurrencyCodes.TOP, "776", "Tongan paʻanga", "seniti"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

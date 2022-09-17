@@ -3,15 +3,15 @@ namespace EasyExchangeRate.Common
     /// <summary>
     /// Ils Currency
     /// </summary>
-    public class IlsCurrency : EasyCurrency, ICurrency
+    public class IlsCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static IlsCurrency()
         {
-            Info =  EasyCurrency.From(("₪", CurrencyCodes.ILS, "376", "Israeli New Shekel"));
+            Info =  Currency.From(("₪", CurrencyCodes.ILS, "376", "Israeli New Shekel", "agora"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

@@ -3,15 +3,15 @@
     /// <summary>
     /// Eur Currency
     /// </summary>
-    public class EurCurrency : EasyCurrency, ICurrency
+    public class EurCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static EurCurrency()
         {
-            Info = EasyCurrency.From(("€", CurrencyCodes.EUR, "978", "Euro"));
+            Info = Currency.From(("€", CurrencyCodes.EUR, "978", "Euro", "cent"));
         }
 
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

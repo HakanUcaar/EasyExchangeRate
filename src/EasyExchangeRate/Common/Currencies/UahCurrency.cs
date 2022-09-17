@@ -3,15 +3,15 @@ namespace EasyExchangeRate.Common
     /// <summary>
     /// Uah Currency
     /// </summary>
-    public class UahCurrency : EasyCurrency, ICurrency
+    public class UahCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static UahCurrency()
         {
-            Info = EasyCurrency.From(("₴", CurrencyCodes.UAH, "980", "Ukrainian Hryvnia"));
+            Info = Currency.From(("₴", CurrencyCodes.UAH, "980", "Ukrainian Hryvnia", "kopiyka"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

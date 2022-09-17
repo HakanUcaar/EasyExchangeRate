@@ -3,15 +3,15 @@ namespace EasyExchangeRate.Common
     /// <summary>
     /// Gtq Currency
     /// </summary>
-    public class GtqCurrency : EasyCurrency, ICurrency
+    public class GtqCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static GtqCurrency()
         {
-            Info = EasyCurrency.From(("Q", CurrencyCodes.GTQ, "320", "Guatemalan Quetzal"));
+            Info = Currency.From(("Q", CurrencyCodes.GTQ, "320", "Guatemalan Quetzal", "centavo"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

@@ -3,15 +3,15 @@ namespace EasyExchangeRate.Common
     /// <summary>
     /// Lbp Currency
     /// </summary>
-    public class LbpCurrency : EasyCurrency, ICurrency
+    public class LbpCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static LbpCurrency()
         {
-            Info = EasyCurrency.From(("ل.ل.‏", CurrencyCodes.LBP, "422", "Lebanese Pound"));
+            Info = Currency.From(("ل.ل.‏", CurrencyCodes.LBP, "422", "Lebanese Pound", "piastre"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

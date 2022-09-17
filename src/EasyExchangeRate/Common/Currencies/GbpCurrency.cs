@@ -3,15 +3,15 @@ namespace EasyExchangeRate.Common
     /// <summary>
     /// Gbp Currency
     /// </summary>
-    public class GbpCurrency : EasyCurrency, ICurrency
+    public class GbpCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static GbpCurrency()
         {
-            Info = EasyCurrency.From(("£", CurrencyCodes.GBP, "826", "British Pound"));
+            Info = Currency.From(("£", CurrencyCodes.GBP, "826", "British Pound", "penny"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

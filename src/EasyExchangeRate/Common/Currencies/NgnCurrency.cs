@@ -3,15 +3,15 @@ namespace EasyExchangeRate.Common
     /// <summary>
     /// Ngn Currency
     /// </summary>
-    public class NgnCurrency : EasyCurrency, ICurrency
+    public class NgnCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static NgnCurrency()
         {
-            Info = EasyCurrency.From(("₦", CurrencyCodes.NGN, "566", "Nigerian Naira"));
+            Info = Currency.From(("₦", CurrencyCodes.NGN, "566", "Nigerian Naira", "kobo"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

@@ -3,15 +3,15 @@ namespace EasyExchangeRate.Common
     /// <summary>
     /// Lrd Currency
     /// </summary>
-    public class LrdCurrency : EasyCurrency, ICurrency
+    public class LrdCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static LrdCurrency()
         {
-            Info = EasyCurrency.From(("$", CurrencyCodes.LRD, "430", "Liberian dollar"));
+            Info = Currency.From(("$", CurrencyCodes.LRD, "430", "Liberian dollar", "cent"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

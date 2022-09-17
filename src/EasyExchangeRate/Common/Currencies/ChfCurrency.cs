@@ -3,15 +3,15 @@
     /// <summary>
     /// Chf Currency
     /// </summary>
-    public class ChfCurrency : EasyCurrency, ICurrency
+    public class ChfCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static ChfCurrency()
         {
-            Info = EasyCurrency.From(("CHF", CurrencyCodes.CHF, "756", "Swiss franc"));
+            Info = Currency.From(("CHF", CurrencyCodes.CHF, "756", "Swiss franc", "francs"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

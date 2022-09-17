@@ -3,15 +3,15 @@ namespace EasyExchangeRate.Common
     /// <summary>
     /// Nok Currency
     /// </summary>
-    public class NokCurrency : EasyCurrency, ICurrency
+    public class NokCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static NokCurrency()
         {
-            Info = EasyCurrency.From(("kr", CurrencyCodes.NOK, "578", "Norwegian Krone"));
+            Info = Currency.From(("kr", CurrencyCodes.NOK, "578", "Norwegian Krone", "øre"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

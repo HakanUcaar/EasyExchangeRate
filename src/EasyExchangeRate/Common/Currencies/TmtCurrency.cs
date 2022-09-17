@@ -1,14 +1,14 @@
-namespace EasyExchangeRate.Common
+﻿namespace EasyExchangeRate.Common
 {
-    public class TmtCurrency : EasyCurrency, ICurrency
+    public class TmtCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static TmtCurrency()
         {
-            Info = EasyCurrency.From(("m.", CurrencyCodes.TMT, "934", "Turkmenistani Manat"));
+            Info = Currency.From(("m.", CurrencyCodes.TMT, "934", "Turkmenistani Manat", "teňňe"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

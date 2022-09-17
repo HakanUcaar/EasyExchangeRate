@@ -3,15 +3,15 @@ namespace EasyExchangeRate.Common
     /// <summary>
     /// Mga Currency
     /// </summary>
-    public class MgaCurrency : EasyCurrency, ICurrency
+    public class MgaCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static MgaCurrency()
         {
-            Info = EasyCurrency.From(("Ar", CurrencyCodes.MGA, "969", "Malagasy ariary"));
+            Info = Currency.From(("Ar", CurrencyCodes.MGA, "969", "Malagasy ariary", "iraimbilanja"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

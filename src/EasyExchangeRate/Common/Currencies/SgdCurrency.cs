@@ -1,14 +1,14 @@
 namespace EasyExchangeRate.Common
 {
-    public class SgdCurrency : EasyCurrency, ICurrency
+    public class SgdCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static SgdCurrency()
         {
-            Info = EasyCurrency.From(("$", CurrencyCodes.SGD, "702", "Singapore Dollar"));
+            Info = Currency.From(("$", CurrencyCodes.SGD, "702", "Singapore Dollar", "cent"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

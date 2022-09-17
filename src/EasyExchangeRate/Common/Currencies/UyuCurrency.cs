@@ -3,15 +3,15 @@ namespace EasyExchangeRate.Common
     /// <summary>
     /// Uyu Currency
     /// </summary>
-    public class UyuCurrency : EasyCurrency, ICurrency
+    public class UyuCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static UyuCurrency()
         {
-            Info = EasyCurrency.From(("$", CurrencyCodes.UYU, "858", "Uruguayan Peso"));
+            Info = Currency.From(("$", CurrencyCodes.UYU, "858", "Uruguayan Peso", "centésimo"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

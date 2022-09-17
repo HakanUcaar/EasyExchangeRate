@@ -3,15 +3,15 @@ namespace EasyExchangeRate.Common
     /// <summary>
     /// Npr Currency
     /// </summary>
-    public class NprCurrency : EasyCurrency, ICurrency
+    public class NprCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static NprCurrency()
         {
-            Info = EasyCurrency.From(("रु", CurrencyCodes.NPR, "524", "Nepalese Rupee"));
+            Info = Currency.From(("रु", CurrencyCodes.NPR, "524", "Nepalese Rupee", "paisa"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }

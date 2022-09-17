@@ -3,15 +3,15 @@
     /// <summary>
     /// Bov Currency
     /// </summary>
-    public class BovCurrency : EasyCurrency, ICurrency
+    public class BovCurrency : Currency, ICurrency
     {
-        public static readonly EasyCurrency Info;
+        public static readonly Currency Info;
         static BovCurrency()
         {
-            Info = EasyCurrency.From(("", CurrencyCodes.BOV, "984", "Bolivian Mvdol (funds code)"));
+            Info = Currency.From(("", CurrencyCodes.BOV, "984", "Bolivian Mvdol (funds code)", "senti"));
 
         }
-        public EasyCurrency GetInfo()
+        public Currency GetInfo()
         {
             return Info;
         }
