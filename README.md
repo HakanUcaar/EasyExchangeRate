@@ -158,7 +158,7 @@ Output :
 ``` csharp
 Code :
 	Console.WriteLine(EnglishNumberToWordsConverter.New().Convert(1000100));
-	Console.WriteLine(TurkeyNumberToWordConverter.New().Convert(1000100));    
+	Console.WriteLine(TurkishNumberToWordConverter.New().Convert(1000100));    
 
 Output :
 	One Million One Hundred
