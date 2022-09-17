@@ -143,6 +143,48 @@ Multiply 5 = 4,9600 USD
  ... 
 ```
 
+### *Humanizer
+``` csharp
+Code
+
+EasyRate rate = ExchangeRate.TurkeyAdapterHumanizer.EUR.DövizKuru;
+Console.WriteLine($"1 {rate.TargetCurrency.Name} = {rate.Money.Amount} {rate.Money.Currency.IsoCode}" );
+
+Output
+
+    1 Euro = 18,5130 TRY
+
+```
+
+
+``` csharp
+Code
+
+List<EasyRate> rates = ExchangeRate.TurkeyAdapterHumanizer.EUR.USD.DövizKuru;
+rates.ForEach(rate => Console.WriteLine($"1 {rate.TargetCurrency.Name} = {rate.Money.Amount} {rate.Money.Currency.IsoCode}"));
+
+Output
+
+   1 US Dollar = 18,2205 TRY
+   1 Euro = 18,5130 TRY
+   
+```
+
+
+``` csharp
+Code
+
+List<EasyRate> convert = ExchangeRate.TurkeyAdapterHumanizer.USD.EUR.GBP.Çevir;
+convert.ForEach(rate => Console.WriteLine($"1 {rate.TargetCurrency.Name} = {rate.Money.Amount} {rate.Money.Currency.IsoCode}"));
+
+Output
+
+   1 US Dollar = 0,9842 EUR
+   1 US Dollar = 0,8546 GBP
+
+```
+
+
 
 
 
