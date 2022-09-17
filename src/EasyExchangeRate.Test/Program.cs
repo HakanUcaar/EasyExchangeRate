@@ -106,7 +106,7 @@ namespace EasyExchangeRate.Test
             });
 
             Console.WriteLine(EnglishNumberToWordsConverter.New().Convert(1000100));
-            Console.WriteLine(TurkeyNumberToWordConverter.New().Convert(1000100));          
+            Console.WriteLine(TurkishNumberToWordConverter.New().Convert(1000100));          
 
         }
     }

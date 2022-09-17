@@ -10,9 +10,9 @@ using System.Threading.Tasks;
 
 namespace EasyExchangeRate.Localization
 {
-    public class TurkeyNumberToWordConverter : AbstractNumberToWordConverter
+    public class TurkishNumberToWordConverter : AbstractNumberToWordConverter
     {
-        public TurkeyNumberToWordConverter()
+        public TurkishNumberToWordConverter()
         {
             AddDigit(Digit.From(("Sıfır","", 0)));
             AddDigit(Digit.From(("Bir","", 1)));
@@ -44,9 +44,9 @@ namespace EasyExchangeRate.Localization
             //AddDigit(Digit.From(("Septillion", 1000000000000000000000)));
             //AddDigit(Digit.From(("Octillion", 1000000000000000000000000)));
         }
-        public static TurkeyNumberToWordConverter New()
+        public static TurkishNumberToWordConverter New()
         {
-            return new TurkeyNumberToWordConverter();
+            return new TurkishNumberToWordConverter();
         }
         public override string Convert(long number)
         {
