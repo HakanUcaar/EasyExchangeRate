@@ -143,11 +143,33 @@ Multiply 5 = 4,9600 USD
  ... 
 ```
 
+### *Rate To Word / Number To Word 
+``` csharp
+Code :
+	ExchangeRate.TurkeyAdapter.GetRate(CurrencyCodes.EUR).Do(rate =>
+	{
+		Console.WriteLine(EnglishNumberToWordsConverter.New().ToWord(rate));
+	});
+	
+Output :
+	Eighteen  Turkish Lira One Thousand Nine Hundred Fifty Four  kuruş	
+```
+
+``` csharp
+Code :
+	Console.WriteLine(EnglishNumberToWordsConverter.New().Convert(1000100));
+	Console.WriteLine(TurkeyNumberToWordConverter.New().Convert(1000100));    
+
+Output :
+	One Million One Hundred
+	Bir Milyon Yüz
+```
+
 ### *Humanizer
 ``` csharp
 Code
 
-EasyRate rate = ExchangeRate.TurkeyAdapterHumanizer.EUR.DövizKuru;
+Rate rate = ExchangeRate.TurkeyAdapterHumanizer.EUR.DövizKuru;
 Console.WriteLine($"1 {rate.TargetCurrency.Name} = {rate.Money.Amount} {rate.Money.Currency.IsoCode}" );
 
 Output
@@ -160,7 +182,7 @@ Output
 ``` csharp
 Code
 
-List<EasyRate> rates = ExchangeRate.TurkeyAdapterHumanizer.EUR.USD.DövizKuru;
+List<Rate> rates = ExchangeRate.TurkeyAdapterHumanizer.EUR.USD.DövizKuru;
 rates.ForEach(rate => Console.WriteLine($"1 {rate.TargetCurrency.Name} = {rate.Money.Amount} {rate.Money.Currency.IsoCode}"));
 
 Output
@@ -174,7 +196,7 @@ Output
 ``` csharp
 Code
 
-List<EasyRate> convert = ExchangeRate.TurkeyAdapterHumanizer.USD.EUR.GBP.Çevir;
+List<Rate> convert = ExchangeRate.TurkeyAdapterHumanizer.USD.EUR.GBP.Çevir;
 convert.ForEach(rate => Console.WriteLine($"1 {rate.TargetCurrency.Name} = {rate.Money.Amount} {rate.Money.Currency.IsoCode}"));
 
 Output
