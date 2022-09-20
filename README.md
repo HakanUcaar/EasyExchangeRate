@@ -4,11 +4,42 @@ Some central bank exchange rates
 <details>
 	<summary>Todo</summary>
  
-  - [X] Add more country
-  - [X] JSON serialize
-  - [X] Nuget packed
-  - [X] Web deploy(open api)
-  
+  - [ ] Add more country
+  - [ ] JSON serialize
+  - [ ] Nuget package
+  - [ ] Web deploy(open api)
+  - [ ] Add number to word localizations
+	- [X] Turkish
+	- [X] English
+	- [ ] Affrikan
+	- [ ] Arabic
+	- [ ] Armenian
+	- [ ] Azerbaijani
+	- [ ] Bangla
+	- [ ] Bulgarian
+	- [ ] Chinese
+	- [ ] Croatian
+	- [ ] Czech
+	- [ ] Farsi
+	- [ ] Finnish
+	- [ ] French
+	- [ ] German
+	- [ ] Greek
+	- [ ] Indian
+	- [ ] Italian
+	- [ ] Japanese
+	- [ ] Korean
+	- [ ] Latvian
+	- [ ] Polish
+	- [ ] Romanian
+	- [ ] Russian
+	- [ ] Spanish
+	- [ ] Tamil
+	- [ ] Thai
+	- [ ] Ukrainian
+	- [ ] Uzbek
+	- [ ] Vietnamase
+ 
 </details>
 
 ## Adapter List
@@ -24,7 +55,7 @@ Some central bank exchange rates
 
 ## Usage
 
-### *Get Adapter Currencies
+### *Get Currencies
 ``` csharp
   ExchangeRate.EuropeAdapter.Currencies.ForEach(currency =>
   {
