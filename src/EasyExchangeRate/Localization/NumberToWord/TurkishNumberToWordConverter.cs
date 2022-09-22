@@ -40,9 +40,6 @@ namespace EasyExchangeRate.Localization
             AddDigit(Digit.From(("Trilyon", "", 1000000000000)));
             AddDigit(Digit.From(("Katrilyon", "", 1000000000000000)));
             AddDigit(Digit.From(("Sextillion", "", 1000000000000000000)));
-            //Not : Int64 supported max digit 18
-            //AddDigit(Digit.From(("Septillion", 1000000000000000000000)));
-            //AddDigit(Digit.From(("Octillion", 1000000000000000000000000)));
         }
         public static TurkishNumberToWordConverter New()
         {

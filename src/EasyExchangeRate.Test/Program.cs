@@ -20,7 +20,8 @@ namespace EasyExchangeRate.Test
             //MathOperations();
             //Convert();
             //Humanizer();
-            NumberToWord();
+            //NumberToWord();
+            WordToNumber();
 
             Console.ReadLine();
         }
@@ -105,9 +106,14 @@ namespace EasyExchangeRate.Test
                 Console.WriteLine(EnglishNumberToWordsConverter.New().ToWord(rate));
             });
 
-            Console.WriteLine(EnglishNumberToWordsConverter.New().Convert(1000100));
-            Console.WriteLine(TurkishNumberToWordConverter.New().Convert(1000100));          
+            Console.WriteLine(EnglishNumberToWordsConverter.New().Convert(1234567892));           
+            Console.WriteLine(TurkishNumberToWordConverter.New().Convert(1234567892));
+        }
 
+        static void WordToNumber()
+        {
+            Console.WriteLine(EnglishNumberToWordsConverter.New().Convert("One Billion Two Hundred Thirty Four Million Five Hundred Sixty Seven Thousand Eight Hundred Ninety Two"));
+            Console.WriteLine(TurkishNumberToWordConverter.New().Convert("Bir Milyar İki Yüz Otuz Dört Milyon Beş Yüz Altmış Yedi Bin Sekiz Yüz Doksan İki"));
         }
     }
 }
