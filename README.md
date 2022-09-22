@@ -196,6 +196,17 @@ Output :
 	Bir Milyon Yüz
 ```
 
+### *Word To Number 
+``` csharp
+Code :
+	Console.WriteLine(EnglishNumberToWordsConverter.New().Convert("One Billion Two Hundred Thirty Four Million Five Hundred Sixty Seven Thousand Eight Hundred Ninety Two"));
+	Console.WriteLine(TurkishNumberToWordConverter.New().Convert("Bir Milyar İki Yüz Otuz Dört Milyon Beş Yüz Altmış Yedi Bin Sekiz Yüz Doksan İki"));
+	
+Output :
+	1234567892
+	1234567892
+```
+
 ### *Humanizer
 ``` csharp
 Code
