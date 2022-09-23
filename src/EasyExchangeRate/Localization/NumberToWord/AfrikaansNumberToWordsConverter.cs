@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace EasyExchangeRate.Localization.NumberToWord
 {
+    //To-Do
     public class AfrikaansNumberToWordsConverter : AbstractNumberToWordConverter
     {
         public AfrikaansNumberToWordsConverter()

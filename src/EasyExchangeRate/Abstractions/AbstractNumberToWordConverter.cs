@@ -34,7 +34,7 @@ namespace EasyExchangeRate.Abstractions
 
             Digits.Last(x => number >= x.Number).Do(x =>
             {
-                listWord.Add((1 == (number / x.Number) && Math.Floor(Math.Log10(number) + 1) < 3) ? x.Singular : $"{Convert(number / x.Number)}{x.Singular}");
+                listWord.Add((1 == (number / x.Number) && Math.Floor(Math.Log10(number) + 1) <= 3) ? x.Singular : $"{Convert(number / x.Number)}{x.Singular}");
                 listWord.Add(Convert(number % x.Number));
             });
 
