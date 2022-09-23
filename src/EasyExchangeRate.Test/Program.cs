@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using EasyExchangeRate.Localization;
 using EasyExchangeRate.Localization.NumberToWord;
+using System.Diagnostics;
 
 namespace EasyExchangeRate.Test
 {
@@ -20,8 +21,8 @@ namespace EasyExchangeRate.Test
             //MathOperations();
             //Convert();
             //Humanizer();
-            //NumberToWord();
-            WordToNumber();
+            NumberToWord();
+            //WordToNumber();
 
             Console.ReadLine();
         }
@@ -106,8 +107,13 @@ namespace EasyExchangeRate.Test
                 Console.WriteLine(EnglishNumberToWordsConverter.New().ToWord(rate));
             });
 
-            Console.WriteLine(EnglishNumberToWordsConverter.New().Convert(1234567892));           
-            Console.WriteLine(TurkishNumberToWordConverter.New().Convert(1234567892));
+            Console.WriteLine(EnglishNumberToWordsConverter.New().Convert(123456789));
+            Console.WriteLine(TurkishNumberToWordConverter.New().Convert(123456789));
+            Console.WriteLine(AzerbaijaniNumberToWordsConverter.New().Convert(123456789));
+            Console.WriteLine(ItalianNumberToWordsConverter.New().Convert(123456789));
+            Console.WriteLine(UkrainianNumberToWordsConverter.New().Convert(123456789));
+            Console.WriteLine(UzbekLatnNumberToWordConverter.New().Convert(123456789));
+            Console.WriteLine(ArmenianNumberToWordsConverter.New().Convert(123456789));
         }
 
         static void WordToNumber()

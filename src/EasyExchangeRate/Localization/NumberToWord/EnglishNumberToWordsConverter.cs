@@ -56,5 +56,23 @@ namespace EasyExchangeRate.Localization.NumberToWord
         {
             return new EnglishNumberToWordsConverter();
         }
+
+        public override string Convert(long number)
+        {
+            if (number <= 0)
+            {
+                return "";
+            }
+
+            var listWord = new List<string>();
+
+            Digits.Last(x => number >= x.Number).Do(x =>
+            {
+                listWord.Add((1 == (number / x.Number) && Math.Floor(Math.Log10(number) + 1) < 3) ? x.Singular : $"{Convert(number / x.Number)}{x.Singular}");
+                listWord.Add(Convert(number % x.Number));
+            });
+
+            return string.Join(" ", listWord.ToArray());
+        }
     }
 }
