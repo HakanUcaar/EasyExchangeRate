@@ -5,7 +5,7 @@ Some central bank exchange rates
 	<summary>Todo</summary>
  
   - [ ] Add more country
-  - [ ] JSON serialize
+  - [X] JSON serialize
   - [ ] Nuget package
   - [ ] Web deploy(open api)
   - [ ] Add number to word localizations
@@ -248,6 +248,41 @@ Output
 
 ```
 
+### *JSON
+``` csharp
+Console.WriteLine($"Base Currency : {ExchangeRate.TurkeyAdapter.BaseCurrency.Name}");
+
+ExchangeRate.TurkeyAdapter.GetRate(CurrencyCodes.USD).Do(rate =>
+{
+	Console.WriteLine($"Rate : {EnglishNumberToWordsConverter.New().ToWord(rate)}");
+	Console.WriteLine(rate.ToJson());
+});
+```
+
+Output
+```
+Base Currency : Turkish Lira
+Rate word : Eighteen  Turkish Lira Five Thousand Five Hundred Fifty  kuruş
+{
+  "TargetCurrency": {
+    "Symbol": "$",
+    "IsoCode": 840,
+    "NumericCode": "840",
+    "Name": "US Dollar",
+    "SubUnit": "Cent"
+  },
+  "Money": {
+    "Amount": 18.5550,
+    "Currency": {
+      "Symbol": "₺",
+      "IsoCode": 949,
+      "NumericCode": "949",
+      "Name": "Turkish Lira",
+      "SubUnit": "kuruş"
+    }
+  }
+}
+```
 
 
 
