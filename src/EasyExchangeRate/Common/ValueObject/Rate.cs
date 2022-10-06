@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -64,6 +65,11 @@ namespace EasyExchangeRate.Common
             //}
 
             return Money.From((((a.Value.Money.Value.Amount / b.Value.Money.Value.Amount)), b.Value.TargetCurrency));
+        }
+
+        public string ToJson()
+        {
+            return JsonConvert.SerializeObject(this,Formatting.Indented);
         }
     }
 }

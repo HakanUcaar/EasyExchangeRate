@@ -14,28 +14,28 @@ namespace EasyExchangeRate.Test
     {
         static void Main(string[] args)
         {
-
-            //GetCurrencies();
-            //GetRate();
-            //GetRates();
-            //MathOperations();
-            //Convert();
-            //Humanizer();
-            NumberToWord();
-            //WordToNumber();
+            //GetCurrenciesSample();
+            //GetRateSample();
+            //GetRatesSample();
+            //MathOperationsSample();
+            //ConvertSample();
+            //HumanizerSample();
+            //NumberToWordSample();
+            //WordToNumberSample();
+            JsonRateSample();
+            //JsonRatesSample();
 
             Console.ReadLine();
         }
 
-        static void GetCurrencies()
+        static void GetCurrenciesSample()
         {
             ExchangeRate.RussiaAdapter.Currencies.ForEach(currency =>
             {
                 Console.WriteLine(currency.ToString());
             });
         }
-
-        static void GetRate()
+        static void GetRateSample()
         {
             Console.WriteLine($"Base Currency : {ExchangeRate.TurkeyAdapter.BaseCurrency.Name}");
             Console.WriteLine("Rate :");
@@ -44,8 +44,7 @@ namespace EasyExchangeRate.Test
                 Console.WriteLine($"{rate.TargetCurrency.Name} = " + rate.Money.Amount);
             });
         }
-
-        static void GetRates()
+        static void GetRatesSample()
         {
             Console.WriteLine($"Base Currency : {ExchangeRate.TurkeyAdapter.BaseCurrency.Name}");
             Console.WriteLine("Rates :");
@@ -55,8 +54,7 @@ namespace EasyExchangeRate.Test
                 Console.WriteLine($"1 {rate.TargetCurrency.Name} = { rate.Money.Amount} {rate.Money.Currency.IsoCode}");
             });
         }
-
-        static void MathOperations()
+        static void MathOperationsSample()
         {
             ExchangeRate.TurkeyAdapter.GetRate(CurrencyCodes.EUR).Do(rateEur =>
             {
@@ -72,8 +70,7 @@ namespace EasyExchangeRate.Test
                 });
             });
         }
-
-        static void Convert()
+        static void ConvertSample()
         {
             ExchangeRate.TurkeyAdapter.HowMuch<EurCurrency, UsdCurrency>(1).Do(convert =>
             {
@@ -87,8 +84,7 @@ namespace EasyExchangeRate.Test
                 Console.WriteLine($"1 {convert.TargetCurrency.ToString()} = {Math.Round(amount, 4)}{convert.Money.Currency.ToString()} ");
             });
         }
-
-        static void Humanizer()
+        static void HumanizerSample()
         {
             //EasyRate rate = ExchangeRate.TurkeyAdapterHumanizer.EUR.NeKadar;
             //Console.WriteLine($"1 {rate.TargetCurrency.Name} = {rate.Money.Amount} {rate.Money.Currency.IsoCode}");
@@ -99,8 +95,7 @@ namespace EasyExchangeRate.Test
             List<Rate> convert = ExchangeRate.TurkeyAdapterHumanizer.USD.EUR.GBP.Çevir;
             convert.ForEach(rate => Console.WriteLine($"1 {rate.TargetCurrency.Name} = {rate.Money.Amount} {rate.Money.Currency.IsoCode}"));
         }
-
-        static void NumberToWord()
+        static void NumberToWordSample()
         {
             ExchangeRate.TurkeyAdapter.GetRate(CurrencyCodes.EUR).Do(rate =>
             {
@@ -115,11 +110,27 @@ namespace EasyExchangeRate.Test
             Console.WriteLine(UzbekLatnNumberToWordConverter.New().Convert(123456789));
             Console.WriteLine(ArmenianNumberToWordsConverter.New().Convert(123456789));
         }
-
-        static void WordToNumber()
+        static void WordToNumberSample()
         {
             Console.WriteLine(EnglishNumberToWordsConverter.New().Convert("One Billion Two Hundred Thirty Four Million Five Hundred Sixty Seven Thousand Eight Hundred Ninety Two"));
             Console.WriteLine(TurkishNumberToWordConverter.New().Convert("Bir Milyar İki Yüz Otuz Dört Milyon Beş Yüz Altmış Yedi Bin Sekiz Yüz Doksan İki"));
+        }
+        static void JsonRateSample()
+        {
+            Console.WriteLine($"Base Currency : {ExchangeRate.TurkeyAdapter.BaseCurrency.Name}");
+            
+            ExchangeRate.TurkeyAdapter.GetRate(CurrencyCodes.USD).Do(rate =>
+            {
+                Console.WriteLine($"Rate : {EnglishNumberToWordsConverter.New().ToWord(rate)}");
+                Console.WriteLine(rate.ToJson());
+            });
+        }
+        static void JsonRatesSample()
+        {
+            Console.WriteLine($"Base Currency : {ExchangeRate.TurkeyAdapter.BaseCurrency.Name}");
+            Console.WriteLine("Rates :");
+
+            Console.WriteLine(ExchangeRate.TurkeyAdapter.GetJsonRates());
         }
     }
 }
