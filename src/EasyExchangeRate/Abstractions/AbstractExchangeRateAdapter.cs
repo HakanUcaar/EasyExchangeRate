@@ -1,5 +1,6 @@
 ﻿using EasyExchangeRate.Common;
 using EasyExchangeRate.Extensions;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +24,10 @@ namespace EasyExchangeRate.Abstraction
         }
 
         public abstract List<Rate> GetRates();
+        public string GetJsonRates()
+        {
+            return JsonConvert.SerializeObject(GetRates(),Formatting.Indented);
+        }
         public virtual Rate GetRate(Currency currency)
         {
             if (!Rates.Any())

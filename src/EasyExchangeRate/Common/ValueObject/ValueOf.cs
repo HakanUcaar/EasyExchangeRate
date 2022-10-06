@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
@@ -32,7 +33,7 @@ namespace EasyExchangeRate.Common
 
             Factory = (Func<TThis>)lambda.Compile();
         }
-
+        [JsonIgnore]
         public TValue Value { get; protected set; }
 
         public static TThis From(TValue item)
