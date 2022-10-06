@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EasyExchangeRate.Localization
+namespace EasyExchangeRate.Localization.NumberToWord
 {
     public class TurkishNumberToWordConverter : AbstractNumberToWordConverter
     {

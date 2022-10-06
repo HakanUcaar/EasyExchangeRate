@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\EasyExchangeRate\EasyExchangeRate.csproj" />
+    <PackageReference Include="EasyExchangeRate" Version="0.5.1" />
   </ItemGroup>
 
 </Project>

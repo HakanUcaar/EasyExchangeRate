@@ -1,4 +1,6 @@
-namespace EasyExchangeRate.Common
+using EasyExchangeRate.Common;
+
+namespace EasyExchangeRate
 {
     /// <summary>
     /// Vef Currency

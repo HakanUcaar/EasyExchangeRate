@@ -284,6 +284,7 @@ Rate word : Eighteen  Turkish Lira Five Thousand Five Hundred Fifty  kuruş
 }
 ```
 
+free icon : https://www.iconfinder.com/icons/8725865/exchange_icon
 
 
 

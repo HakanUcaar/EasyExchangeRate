@@ -2,7 +2,38 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
+    <Title>EasyExchangeRate</Title>
+    <Authors>Hakan Uçar</Authors>
+    <PackageProjectUrl>https://github.com/HakanUcaar/EasyExchangeRate</PackageProjectUrl>
+    <PackageIcon>icon_128.png</PackageIcon>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/HakanUcaar/EasyExchangeRate</RepositoryUrl>
+    <PackageTags>exchange;rate;exchange-rate;central-bank-exchange-rate;central-bank;europe-exchange-rate</PackageTags>
+    <NeutralLanguage>tr-TR</NeutralLanguage>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <Version>0.5.1</Version>
+    <Description>Some central bank exchange rates</Description>
+    <ApplicationIcon>icon_48.ico</ApplicationIcon>
+    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+    <PackAsTool>False</PackAsTool>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <FileVersion>0.5.1</FileVersion>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="icon_48.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\icon_128.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
