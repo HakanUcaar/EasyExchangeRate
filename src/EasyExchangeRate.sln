@@ -5,8 +5,6 @@ VisualStudioVersion = 17.0.31919.166
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyExchangeRate", "EasyExchangeRate\EasyExchangeRate.csproj", "{479AFF9B-6FFD-434E-AF55-749D1C9B31A6}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyExchangeRate.Samples", "EasyExchangeRate.Test\EasyExchangeRate.Samples.csproj", "{10930165-B178-4BAC-8C1F-DA11AC501BCF}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{479AFF9B-6FFD-434E-AF55-749D1C9B31A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{479AFF9B-6FFD-434E-AF55-749D1C9B31A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{479AFF9B-6FFD-434E-AF55-749D1C9B31A6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{10930165-B178-4BAC-8C1F-DA11AC501BCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{10930165-B178-4BAC-8C1F-DA11AC501BCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{10930165-B178-4BAC-8C1F-DA11AC501BCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{10930165-B178-4BAC-8C1F-DA11AC501BCF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

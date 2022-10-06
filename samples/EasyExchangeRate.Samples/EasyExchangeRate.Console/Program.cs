@@ -1,12 +1,12 @@
 ﻿
-using EasyExchangeRate.Common;
-using EasyExchangeRate.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using EasyExchangeRate.Localization;
-using EasyExchangeRate.Localization.NumberToWord;
 using System.Diagnostics;
+using EasyExchangeRate.Common;
+using EasyExchangeRate.Extensions;
+using EasyExchangeRate.Localization.NumberToWord;
+using EasyExchangeRate.Localization;
 
 namespace EasyExchangeRate.Test
 {
@@ -51,7 +51,7 @@ namespace EasyExchangeRate.Test
 
             ExchangeRate.TurkeyAdapter.GetRates().ForEach(rate =>
             {
-                Console.WriteLine($"1 {rate.TargetCurrency.Name} = { rate.Money.Amount} {rate.Money.Currency.IsoCode}");
+                Console.WriteLine($"1 {rate.TargetCurrency.Name} = {rate.Money.Amount} {rate.Money.Currency.IsoCode}");
             });
         }
         static void MathOperationsSample()
@@ -78,7 +78,7 @@ namespace EasyExchangeRate.Test
                 Console.WriteLine($"1 {convert.TargetCurrency.ToString()} = {Math.Round(amount, 4)}{convert.Money.Currency.Symbol} ");
             });
 
-            ExchangeRate.TurkeyAdapter.HowMuch<UsdCurrency,EurCurrency>(1).Do(convert =>
+            ExchangeRate.TurkeyAdapter.HowMuch<UsdCurrency, EurCurrency>(1).Do(convert =>
             {
                 var amount = convert.Money.Amount;
                 Console.WriteLine($"1 {convert.TargetCurrency.ToString()} = {Math.Round(amount, 4)}{convert.Money.Currency.ToString()} ");
@@ -118,7 +118,7 @@ namespace EasyExchangeRate.Test
         static void JsonRateSample()
         {
             Console.WriteLine($"Base Currency : {ExchangeRate.TurkeyAdapter.BaseCurrency.Name}");
-            
+
             ExchangeRate.TurkeyAdapter.GetRate(CurrencyCodes.USD).Do(rate =>
             {
                 Console.WriteLine($"Rate : {EnglishNumberToWordsConverter.New().ToWord(rate)}");

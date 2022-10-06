@@ -1,5 +1,7 @@
-﻿namespace EasyExchangeRate.Common
-{
+﻿using EasyExchangeRate.Common;
+
+namespace EasyExchangeRate
+{ 
     /// <summary>
     /// Bov Currency
     /// </summary>

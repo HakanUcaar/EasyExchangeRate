@@ -1,4 +1,7 @@
-namespace EasyExchangeRate.Common
+using EasyExchangeRate;
+using EasyExchangeRate.Common;
+
+namespace EasyExchangeRate
 {
     /// <summary>
     /// Mro Currency
