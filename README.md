@@ -1,12 +1,17 @@
+<p align="center">
+  <img src="https://github.com/HakanUcaar/EasyExchangeRate/blob/main/icon_128.png?raw=true" alt="icon"/>
+</p>
+
+
 # EasyExchangeRate
-Some central bank exchange rates
+.Some central bank exchange rates
 
 <details>
 	<summary>Todo</summary>
  
   - [ ] Add more country
   - [X] JSON serialize
-  - [ ] Nuget package
+  - [X] Nuget package
   - [ ] Web deploy(open api)
   - [ ] Add number to word localizations
 	- [X] Turkish
