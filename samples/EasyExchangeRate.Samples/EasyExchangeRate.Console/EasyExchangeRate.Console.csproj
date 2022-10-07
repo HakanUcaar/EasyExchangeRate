@@ -6,7 +6,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="EasyExchangeRate" Version="0.5.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="EasyExchangeRate">
+      <HintPath>..\..\..\src\EasyExchangeRate\bin\Debug\net5.0\EasyExchangeRate.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

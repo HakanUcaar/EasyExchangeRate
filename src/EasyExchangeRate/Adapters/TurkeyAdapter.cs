@@ -59,10 +59,20 @@ namespace EasyExchangeRate.Adapter
                 {
                     this.Currencies.Find(x => x.IsoCode.ToString() == node.Attributes["CurrencyCode"].Value).Do(currency =>
                     {
-                        var val = node.SelectSingleNode("ForexBuying").InnerText;
-                        var rate = Decimal.Parse((String.IsNullOrEmpty(val) ? "0" : val) , NumberStyles.Any, new CultureInfo("en-Us")) / Source.Unit;
+                        var fxb = Decimal.Parse((String.IsNullOrEmpty(node.SelectSingleNode("ForexBuying").InnerText) ? "0" : node.SelectSingleNode("ForexBuying").InnerText) , NumberStyles.Any, new CultureInfo("en-Us")) / Source.Unit;
+                        var fxs = Decimal.Parse((String.IsNullOrEmpty(node.SelectSingleNode("ForexSelling").InnerText) ? "0" : node.SelectSingleNode("ForexSelling").InnerText) , NumberStyles.Any, new CultureInfo("en-Us")) / Source.Unit;
+                        var bnb = Decimal.Parse((String.IsNullOrEmpty(node.SelectSingleNode("BanknoteBuying").InnerText) ? "0" : node.SelectSingleNode("BanknoteBuying").InnerText) , NumberStyles.Any, new CultureInfo("en-Us")) / Source.Unit;
+                        var bns = Decimal.Parse((String.IsNullOrEmpty(node.SelectSingleNode("BanknoteSelling").InnerText) ? "0" : node.SelectSingleNode("BanknoteSelling").InnerText) , NumberStyles.Any, new CultureInfo("en-Us")) / Source.Unit;
 
-                        Rates.Add(Rate.From((Money.From((rate,BaseCurrency)), currency)));
+                        var rate = Rate.From((Money.From((fxb, BaseCurrency)), currency));
+                        rate.ExtraInfo =new
+                        {
+                            ForexBuying = fxb,
+                            ForexSelling = fxs,
+                            BanknoteBuying = bnb,
+                            BanknoteSelling = bns,
+                        };
+                        Rates.Add(rate);
                     });
                 }
             }
