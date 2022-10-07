@@ -288,7 +288,41 @@ Rate word : Eighteen  Turkish Lira Five Thousand Five Hundred Fifty  kuruş
   }
 }
 ```
-
+### *ExtraInfo
+``` csharp
+ExchangeRate.TurkeyAdapter.GetRate(CurrencyCodes.USD).Do(rate =>
+{
+	Console.WriteLine(rate.ToJson());
+});
+```
+Output
+```
+{
+  "TargetCurrency": {
+    "Symbol": "$",
+    "IsoCode": 840,
+    "NumericCode": "840",
+    "Name": "US Dollar",
+    "SubUnit": "Cent"
+  },
+  "Money": {
+    "Amount": 18.5589,
+    "Currency": {
+      "Symbol": "?",
+      "IsoCode": 949,
+      "NumericCode": "949",
+      "Name": "Turkish Lira",
+      "SubUnit": "kuruş"
+    }
+  },
+  "ExtraInfo": {
+    "ForexBuying": 18.5589,
+    "ForexSelling": 18.5923,
+    "BanknoteBuying": 18.5459,
+    "BanknoteSelling": 18.6202
+  }
+}
+```
 free icon : https://www.iconfinder.com/icons/8725865/exchange_icon
 
 
