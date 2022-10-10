@@ -1,5 +1,6 @@
 ﻿using EasyExchangeRate.Abstraction;
 using EasyExchangeRate.Common;
+using EasyExchangeRate.Common.ValueObject;
 using EasyExchangeRate.Extensions;
 using System;
 using System.Collections.Generic;
@@ -45,6 +46,7 @@ namespace EasyExchangeRate.Adapter
 
         public override List<Rate> GetRates()
         {
+            var rates = new List<Rate>();
             var xmlDoc = new XmlDocument();
             xmlDoc.Load(Source.Url);
             var namespaceManager = new XmlNamespaceManager(xmlDoc.NameTable);
@@ -61,13 +63,17 @@ namespace EasyExchangeRate.Adapter
                         var val = node.SelectSingleNode("cb:observation/cb:value", namespaceManager).InnerText;
                         var rate = Decimal.Parse((String.IsNullOrEmpty(val) ? "0" : val), NumberStyles.Any, new CultureInfo("en-Us")) / Source.Unit;
 
-                        Rates.Add(Rate.From((Money.From((rate, BaseCurrency)), currency)));
-                        //this.Rates.Add(EasyMoney.From((rate, currency)));
+                        rates.Add(Rate.From((DateTime.Now, Money.From((rate, BaseCurrency)), currency)));
                     });
                 }
             }
 
-            return Rates;
+            return rates;
+        }
+
+        public override List<Rate> GetRates(DateTime date)
+        {
+            throw new NotImplementedException();
         }
     }
 }

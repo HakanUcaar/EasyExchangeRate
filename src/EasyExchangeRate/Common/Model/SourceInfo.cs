@@ -10,6 +10,7 @@ namespace EasyExchangeRate.Common
     {
         public string Name { get; set; }
         public string Url { get; set; }
+        public string RangeUrl { get; set; }
         public int Unit { get; set; }
     }
 }

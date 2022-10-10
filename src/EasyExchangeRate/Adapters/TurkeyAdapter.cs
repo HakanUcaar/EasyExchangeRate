@@ -1,5 +1,7 @@
 ﻿using EasyExchangeRate.Abstraction;
 using EasyExchangeRate.Common;
+using EasyExchangeRate.Common.ValueObject;
+using EasyExchangeRate.Exceptions;
 using EasyExchangeRate.Extensions;
 using System;
 using System.Collections.Generic;
@@ -14,7 +16,7 @@ namespace EasyExchangeRate.Adapter
         public override SourceInfo Source => new SourceInfo()
         {
             Name = "Republic of Turkey Central Bank",
-            Url = "https://www.tcmb.gov.tr/kurlar/today.xml",
+            Url = "https://www.tcmb.gov.tr/kurlar",
             Unit = 1
         };
 
@@ -48,8 +50,16 @@ namespace EasyExchangeRate.Adapter
 
         public sealed override List<Rate> GetRates()
         {
+            var rates = new List<Rate>();
             var doc = new XmlDocument();
-            doc.Load(Source.Url);
+            try
+            {
+                doc.Load($"{Source.Url}/today.xml");
+            }
+            catch (Exception)
+            {
+                throw new LoadSourceException();
+            }            
 
             XmlNodeList nodes = doc.SelectNodes("//*[@CurrencyCode]");
 
@@ -64,7 +74,7 @@ namespace EasyExchangeRate.Adapter
                         var bnb = Decimal.Parse((String.IsNullOrEmpty(node.SelectSingleNode("BanknoteBuying").InnerText) ? "0" : node.SelectSingleNode("BanknoteBuying").InnerText) , NumberStyles.Any, new CultureInfo("en-Us")) / Source.Unit;
                         var bns = Decimal.Parse((String.IsNullOrEmpty(node.SelectSingleNode("BanknoteSelling").InnerText) ? "0" : node.SelectSingleNode("BanknoteSelling").InnerText) , NumberStyles.Any, new CultureInfo("en-Us")) / Source.Unit;
 
-                        var rate = Rate.From((Money.From((fxb, BaseCurrency)), currency));
+                        var rate = Rate.From((DateTime.Now, Money.From((fxb, BaseCurrency)), currency));
                         rate.ExtraInfo =new
                         {
                             ForexBuying = fxb,
@@ -72,12 +82,60 @@ namespace EasyExchangeRate.Adapter
                             BanknoteBuying = bnb,
                             BanknoteSelling = bns,
                         };
-                        Rates.Add(rate);
+                        rates.Add(rate);
                     });
                 }
             }
 
-            return Rates;
+            return rates;
+        }
+        public sealed override List<Rate> GetRates(DateTime date)
+        {
+            var rates = new List<Rate>();
+            var doc = new XmlDocument();
+            try
+            {
+                if (date.IsWeekend())
+                {
+                    doc.Load($"{Source.Url}/{date.FridayOfLastWeek().ToString("yyyyMM")}/{date.FridayOfLastWeek().ToString("ddMMyyyy")}.xml");
+                }
+                else
+                {
+                    doc.Load($"{Source.Url}/{date.ToString("yyyyMM")}/{date.ToString("ddMMyyyy")}.xml");
+                }                
+            }
+            catch (Exception)
+            {
+                throw new LoadSourceException();
+            }            
+
+            XmlNodeList nodes = doc.SelectNodes("//*[@CurrencyCode]");
+
+            if (nodes != null)
+            {
+                foreach (XmlNode node in nodes)
+                {
+                    this.Currencies.Find(x => x.IsoCode.ToString() == node.Attributes["CurrencyCode"].Value).Do(currency =>
+                    {
+                        var fxb = Decimal.Parse((String.IsNullOrEmpty(node.SelectSingleNode("ForexBuying").InnerText) ? "0" : node.SelectSingleNode("ForexBuying").InnerText), NumberStyles.Any, new CultureInfo("en-Us")) / Source.Unit;
+                        var fxs = Decimal.Parse((String.IsNullOrEmpty(node.SelectSingleNode("ForexSelling").InnerText) ? "0" : node.SelectSingleNode("ForexSelling").InnerText), NumberStyles.Any, new CultureInfo("en-Us")) / Source.Unit;
+                        var bnb = Decimal.Parse((String.IsNullOrEmpty(node.SelectSingleNode("BanknoteBuying").InnerText) ? "0" : node.SelectSingleNode("BanknoteBuying").InnerText), NumberStyles.Any, new CultureInfo("en-Us")) / Source.Unit;
+                        var bns = Decimal.Parse((String.IsNullOrEmpty(node.SelectSingleNode("BanknoteSelling").InnerText) ? "0" : node.SelectSingleNode("BanknoteSelling").InnerText), NumberStyles.Any, new CultureInfo("en-Us")) / Source.Unit;
+
+                        var rate = Rate.From((date, Money.From((fxb, BaseCurrency)), currency));
+                        rate.ExtraInfo = new
+                        {
+                            ForexBuying = fxb,
+                            ForexSelling = fxs,
+                            BanknoteBuying = bnb,
+                            BanknoteSelling = bns,
+                        };
+                        rates.Add(rate);
+                    });
+                }
+            }
+
+            return rates;
         }
     }
 }
