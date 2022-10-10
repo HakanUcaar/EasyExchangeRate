@@ -32,10 +32,10 @@ namespace EasyExchangeRate.Abstraction
             dateRange.ToDateList().ForEach(date => { rates.Add(GetRates(date)); });
             return rates;
         }
-        public virtual List<List<Rate>> GetRates(int addDays)
+        public virtual List<List<Rate>> GetRates(int dayCount)
         {
             var rates = new List<List<Rate>>();
-            var dateRange = DateRange.From((DateTime.Now.AddDays(addDays), DateTime.Now));
+            var dateRange = DateRange.From((DateTime.Now.AddDays(-dayCount), DateTime.Now));
             dateRange.ToDateList().ForEach(date => { rates.Add(GetRates(date)); });
             return rates;
         }
@@ -47,15 +47,16 @@ namespace EasyExchangeRate.Abstraction
         {
             return JsonConvert.SerializeObject(GetRates(dateRange), Formatting.Indented);
         }
+        public string GetJsonRates(int dayCount)
+        {
+            return JsonConvert.SerializeObject(GetRates(dayCount), Formatting.Indented);
+        }
 
         public virtual Rate GetRate(Currency currency)
         {
-            if (!Rates.Any())
-            {
-                GetRates();
-            }
+            var rates = GetRates();
 
-            var money = Rates.FirstOrDefault(x => x.TargetCurrency == currency);
+            var money = rates.FirstOrDefault(x => x.TargetCurrency == currency);
             if (money.IsNull())
             {
                 throw new CurrencyNotFoundException();
@@ -65,21 +66,9 @@ namespace EasyExchangeRate.Abstraction
         }
         public virtual Rate GetRate(Currency currency, DateTime date)
         {
-            GetRates(date);
+            var rates = GetRates(date);
 
-            var money = Rates.FirstOrDefault(x => x.TargetCurrency == currency);
-            if (money.IsNull())
-            {
-                throw new CurrencyNotFoundException();
-            }
-
-            return money;
-        }
-        public virtual Rate GetRate(Currency currency, int addDays)
-        {
-            GetRates(DateRange.From((DateTime.Now.AddDays(addDays),DateTime.Now)));
-
-            var money = Rates.FirstOrDefault(x => x.TargetCurrency == currency);
+            var money = rates.FirstOrDefault(x => x.TargetCurrency == currency);
             if (money.IsNull())
             {
                 throw new CurrencyNotFoundException();
@@ -89,10 +78,7 @@ namespace EasyExchangeRate.Abstraction
         }
         public virtual Rate GetRate(CurrencyCodes isoCode)
         {
-            if (!Rates.Any())
-            {
-                GetRates();
-            }
+            var rates = GetRates();
 
             var money = Rates.FirstOrDefault(x => x.TargetCurrency.IsoCode == isoCode);
             if (money.IsNull())
@@ -104,21 +90,9 @@ namespace EasyExchangeRate.Abstraction
         }
         public virtual Rate GetRate(CurrencyCodes isoCode, DateTime date)
         {
-            GetRates(date);
+            var rates = GetRates(date);
 
-            var money = Rates.FirstOrDefault(x => x.TargetCurrency.IsoCode == isoCode);
-            if (money.IsNull())
-            {
-                throw new CurrencyNotFoundException();
-            }
-
-            return money;
-        }
-        public virtual Rate GetRate(CurrencyCodes isoCode, int addDays)
-        {
-            GetRates(DateRange.From((DateTime.Now.AddDays(addDays), DateTime.Now)));
-
-            var money = Rates.FirstOrDefault(x => x.TargetCurrency.IsoCode == isoCode);
+            var money = rates.FirstOrDefault(x => x.TargetCurrency.IsoCode == isoCode);
             if (money.IsNull())
             {
                 throw new CurrencyNotFoundException();

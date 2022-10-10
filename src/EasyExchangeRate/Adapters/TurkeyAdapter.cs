@@ -95,6 +95,11 @@ namespace EasyExchangeRate.Adapter
             var doc = new XmlDocument();
             try
             {
+                if(date.Date == DateTime.Now.Date)
+                {
+                    return GetRates();                
+                }
+                else
                 if (date.IsWeekend())
                 {
                     doc.Load($"{Source.Url}/{date.FridayOfLastWeek().ToString("yyyyMM")}/{date.FridayOfLastWeek().ToString("ddMMyyyy")}.xml");
