@@ -26,8 +26,8 @@ namespace EasyExchangeRate.Test
             //WordToNumberSample();
             //JsonRateSample();
             //JsonRatesSample();
-            //GetRateByDateSample();
-            GetRateByDateRangeSample();
+            GetRateByDateSample();
+            //GetRateByDateRangeSample();
             Console.ReadLine();
         }
 
@@ -139,7 +139,7 @@ namespace EasyExchangeRate.Test
         {
             Console.WriteLine($"Base Currency : {ExchangeRate.TurkeyAdapter.BaseCurrency.Name}");
             Console.WriteLine("Rate :");
-            ExchangeRate.TurkeyAdapter.GetRate(CurrencyCodes.EUR,DateTime.Now.AddDays(-4)).Do(rate =>
+            ExchangeRate.TurkeyAdapter.GetRate(CurrencyCodes.EUR,DateTime.Now).Do(rate =>
             {
                 Console.WriteLine($"{rate.TargetCurrency.Name} = " + rate.Money.Amount);
             });
