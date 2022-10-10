@@ -13,6 +13,15 @@
   - [X] JSON serialize
   - [X] Nuget package
   - [ ] Web deploy(open api)
+  - [ ] DateRange
+  	-[ ] Australia
+	-[ ] Canada
+	-[ ] Denmark
+	-[ ] Europe
+	-[ ] Israel
+	-[ ] Poland
+	-[ ] Russia
+	-[X] Turkey
   - [ ] Add number to word localizations
 	- [X] Turkish
 	- [X] English
@@ -295,6 +304,90 @@ Rate word : Eighteen  Turkish Lira Five Thousand Five Hundred Fifty  kuruş
 }
 ```
 
+### *Date
+``` csharp
+Console.WriteLine($"Base Currency : {ExchangeRate.TurkeyAdapter.BaseCurrency.Name}");
+ExchangeRate.TurkeyAdapter.GetRate(CurrencyCodes.EUR,DateTime.Now.AddDays(-3)).Do(rate =>
+{
+	Console.WriteLine($"Relase Date : {rate.RelaseDate.ToString("dd.MM.yyyy")}");
+	Console.WriteLine($"{rate.TargetCurrency.Name} = " + rate.Money.Amount);
+});
+```
+Output
+```
+Base Currency : Turkish Lira
+Relase Date : 07.10.2022
+Euro = 18,1795
+```
+
+### *DateRange
+``` csharp
+Console.WriteLine($"Base Currency : {ExchangeRate.TurkeyAdapter.BaseCurrency.Name}");
+Console.WriteLine("Rates :");
+
+Console.WriteLine(ExchangeRate.TurkeyAdapter.GetJsonRates(DateRange.From((DateTime.Now.AddDays(-1), DateTime.Now))));
+```
+Output
+```
+[
+  [
+    {
+      "RelaseDate": "2022-10-09T22:11:25.1056739+03:00",
+      "TargetCurrency": {
+        "Symbol": "$",
+        "IsoCode": 840,
+        "NumericCode": "840",
+        "Name": "US Dollar",
+        "SubUnit": "Cent"
+      },
+      "Money": {
+        "Amount": 18.5592,
+        "Currency": {
+          "Symbol": "?",
+          "IsoCode": 949,
+          "NumericCode": "949",
+          "Name": "Turkish Lira",
+          "SubUnit": "kuruş"
+        }
+      },
+      "ExtraInfo": {
+        "ForexBuying": 18.5592,
+        "ForexSelling": 18.5927,
+        "BanknoteBuying": 18.5462,
+        "BanknoteSelling": 18.6206
+      }
+    }...
+	],
+	 [
+    {
+      "RelaseDate": "2022-10-10T22:11:26.9664876+03:00",
+      "TargetCurrency": {
+        "Symbol": "$",
+        "IsoCode": 840,
+        "NumericCode": "840",
+        "Name": "US Dollar",
+        "SubUnit": "Cent"
+      },
+      "Money": {
+        "Amount": 18.5581,
+        "Currency": {
+          "Symbol": "?",
+          "IsoCode": 949,
+          "NumericCode": "949",
+          "Name": "Turkish Lira",
+          "SubUnit": "kuruş"
+        }
+      },
+      "ExtraInfo": {
+        "ForexBuying": 18.5581,
+        "ForexSelling": 18.5915,
+        "BanknoteBuying": 18.5451,
+        "BanknoteSelling": 18.6194
+      }
+    }...
+	]
+]
+```
 free icon : https://www.iconfinder.com/icons/8725865/exchange_icon
 
 
