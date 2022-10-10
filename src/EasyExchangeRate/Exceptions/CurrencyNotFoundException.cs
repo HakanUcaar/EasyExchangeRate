@@ -8,7 +8,7 @@ namespace EasyExchangeRate
 {
     public class CurrencyNotFoundException : Exception
     {
-        public CurrencyNotFoundException() : base($"Currency nt found")
+        public CurrencyNotFoundException() : base($"Currency not found")
         {
 
         }

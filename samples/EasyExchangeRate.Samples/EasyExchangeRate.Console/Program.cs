@@ -7,6 +7,8 @@ using EasyExchangeRate.Common;
 using EasyExchangeRate.Extensions;
 using EasyExchangeRate.Localization.NumberToWord;
 using EasyExchangeRate.Localization;
+using EasyExchangeRate.Common.ValueObject;
+using Newtonsoft.Json;
 
 namespace EasyExchangeRate.Test
 {
@@ -22,9 +24,10 @@ namespace EasyExchangeRate.Test
             //HumanizerSample();
             //NumberToWordSample();
             //WordToNumberSample();
-            JsonRateSample();
+            //JsonRateSample();
             //JsonRatesSample();
-
+            //GetRateByDateSample();
+            GetRateByDateRangeSample();
             Console.ReadLine();
         }
 
@@ -131,6 +134,22 @@ namespace EasyExchangeRate.Test
             Console.WriteLine("Rates :");
 
             Console.WriteLine(ExchangeRate.TurkeyAdapter.GetJsonRates());
+        }
+        static void GetRateByDateSample()
+        {
+            Console.WriteLine($"Base Currency : {ExchangeRate.TurkeyAdapter.BaseCurrency.Name}");
+            Console.WriteLine("Rate :");
+            ExchangeRate.TurkeyAdapter.GetRate(CurrencyCodes.EUR,DateTime.Now.AddDays(-4)).Do(rate =>
+            {
+                Console.WriteLine($"{rate.TargetCurrency.Name} = " + rate.Money.Amount);
+            });
+        }
+        static void GetRateByDateRangeSample()
+        {
+            Console.WriteLine($"Base Currency : {ExchangeRate.TurkeyAdapter.BaseCurrency.Name}");
+            Console.WriteLine("Rates :");
+
+            Console.WriteLine(ExchangeRate.TurkeyAdapter.GetJsonRates(DateRange.From((DateTime.Now.AddDays(-1), DateTime.Now))));
         }
     }
 }
