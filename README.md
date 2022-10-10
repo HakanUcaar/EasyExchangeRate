@@ -4,7 +4,7 @@
 
 
 # EasyExchangeRate
-.Some central bank exchange rates
+Some central bank exchange rates
 
 <details>
 	<summary>Todo</summary>
@@ -14,14 +14,14 @@
   - [X] Nuget package
   - [ ] Web deploy(open api)
   - [ ] DateRange
-  	-[ ] Australia
-	-[ ] Canada
-	-[ ] Denmark
-	-[ ] Europe
-	-[ ] Israel
-	-[ ] Poland
-	-[ ] Russia
-	-[X] Turkey
+	- [ ] Australia
+	- [ ] Canada
+	- [ ] Denmark
+	- [ ] Europe
+	- [ ] Israel
+	- [ ] Poland
+	- [ ] Russia
+	- [X] Turkey
   - [ ] Add number to word localizations
 	- [X] Turkish
 	- [X] English
