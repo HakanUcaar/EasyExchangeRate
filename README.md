@@ -7,6 +7,32 @@
 Some central bank exchange rates
 
 <details>
+ <summary>Minimal APi</summary>
+ 
+ Deploy on heroku :
+  ```
+	docker build -t exchange .
+	docker tag exchange registry.heroku.com/<herokuAppName>/web
+
+	heroku login
+	heroku container:login
+
+	heroku container:push web -a <herokuAppName>
+	heroku container:release web -a <herokuAppName>
+ ```
+ 
+ Heroku url : https://easy-exchange-rate.herokuapp.com/swagger/index.html
+ 
+ Test Api :
+ ``` 
+ getCurrencies :  https://easy-exchange-rate.herokuapp.com/currencies?adapter=TurkeyAdapter
+ getRates :  https://easy-exchange-rate.herokuapp.com/getRates?adapter=DenmarkAdapter
+ numberToWord : https://easy-exchange-rate.herokuapp.com/numberToWord?language=English&value=123456789
+ ```
+ 
+</details>
+
+<details>
 	<summary>Todo</summary>
  
   - [ ] Add more country
