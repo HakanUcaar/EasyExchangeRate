@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/HakanUcaar/EasyExchangeRate/blob/main/icon_128.png?raw=true" alt="icon"/>
+  <img src="https://github.com/HakanUcaar/EasyExchangeRate/blob/main/imgs/icon_128.png?raw=true" alt="icon"/>
 </p>
 
 
@@ -413,6 +413,22 @@ Output
     }...
 	]
 ]
+```
+### *Setting
+``` csharp
+ExchangeRate.TurkeyAdapter.AddOption<DataSetting>(option => option.RateDigit = 2);
+Console.WriteLine($"Base Currency : {ExchangeRate.TurkeyAdapter.BaseCurrency.Name}");
+Console.WriteLine("Rate :");
+ExchangeRate.TurkeyAdapter.GetRate(CurrencyCodes.EUR).Do(rate =>
+{
+Console.WriteLine($"{rate.TargetCurrency.Name} = " + rate.Money.Amount);
+});
+```
+Output
+```
+Base Currency : Turkish Lira
+Rate :
+Euro = 18,68
 ```
 free icon : https://www.iconfinder.com/icons/8725865/exchange_icon
 
