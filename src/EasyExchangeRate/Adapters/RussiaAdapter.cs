@@ -65,6 +65,8 @@ namespace EasyExchangeRate.Adapter
 
         public override List<Rate> GetRates()
         {
+            var dataSetting = (DataSetting)Options.FirstOrDefault(x => x.GetType() == typeof(DataSetting));
+
             var rates = new List<Rate>();
             var doc = new XmlDocument();
             doc.Load(@Source.Url);
@@ -79,7 +81,7 @@ namespace EasyExchangeRate.Adapter
                     {
                         var val = node.SelectSingleNode("Value").InnerText;
                         var rate = Decimal.Parse((String.IsNullOrEmpty(val) ? "0" : val.Replace(",", ".")), NumberStyles.Any, new CultureInfo("en-Us")) / Source.Unit;
-                        rates.Add(Rate.From((DateTime.Now, Money.From((rate, BaseCurrency)), currency)));
+                        rates.Add(Rate.From((DateTime.Now, Money.From((dataSetting is not null ? Math.Round(rate, dataSetting.RateDigit) : rate, BaseCurrency)), currency)));
                     });
                 }
             }

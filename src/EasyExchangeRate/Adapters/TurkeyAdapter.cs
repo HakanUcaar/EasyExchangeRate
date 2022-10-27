@@ -50,6 +50,8 @@ namespace EasyExchangeRate.Adapter
 
         public sealed override List<Rate> GetRates()
         {
+            var dataSetting = (DataSetting)Options.FirstOrDefault(x => x.GetType() == typeof(DataSetting));
+
             var rates = new List<Rate>();
             var doc = new XmlDocument();
             try
@@ -72,21 +74,21 @@ namespace EasyExchangeRate.Adapter
                         var fxb = Decimal.Parse((String.IsNullOrEmpty(node.SelectSingleNode("ForexBuying").InnerText) ? "0" : node.SelectSingleNode("ForexBuying").InnerText) , NumberStyles.Any, new CultureInfo("en-Us")) / Source.Unit;
                         var fxs = Decimal.Parse((String.IsNullOrEmpty(node.SelectSingleNode("ForexSelling").InnerText) ? "0" : node.SelectSingleNode("ForexSelling").InnerText) , NumberStyles.Any, new CultureInfo("en-Us")) / Source.Unit;
                         var bnb = Decimal.Parse((String.IsNullOrEmpty(node.SelectSingleNode("BanknoteBuying").InnerText) ? "0" : node.SelectSingleNode("BanknoteBuying").InnerText) , NumberStyles.Any, new CultureInfo("en-Us")) / Source.Unit;
-                        var bns = Decimal.Parse((String.IsNullOrEmpty(node.SelectSingleNode("BanknoteSelling").InnerText) ? "0" : node.SelectSingleNode("BanknoteSelling").InnerText) , NumberStyles.Any, new CultureInfo("en-Us")) / Source.Unit;
-
-                        var rate = Rate.From((DateTime.Now, Money.From((fxb, BaseCurrency)), currency));
+                        var bns = Decimal.Parse((String.IsNullOrEmpty(node.SelectSingleNode("BanknoteSelling").InnerText) ? "0" : node.SelectSingleNode("BanknoteSelling").InnerText) , NumberStyles.Any, new CultureInfo("en-Us")) / Source.Unit;                       
+                    
+                        var rate = Rate.From((DateTime.Now, Money.From((dataSetting is not null ? Math.Round(fxb,dataSetting.RateDigit) : fxb, BaseCurrency)), currency));
                         rate.ExtraInfo =new
                         {
-                            ForexBuying = fxb,
-                            ForexSelling = fxs,
-                            BanknoteBuying = bnb,
-                            BanknoteSelling = bns,
+                            ForexBuying = dataSetting is not null ? Math.Round(fxb, dataSetting.RateDigit) : fxb,
+                            ForexSelling = dataSetting is not null ? Math.Round(fxb, dataSetting.RateDigit) : fxs,
+                            BanknoteBuying = dataSetting is not null ? Math.Round(fxb, dataSetting.RateDigit) : bnb,
+                            BanknoteSelling = dataSetting is not null ? Math.Round(fxb, dataSetting.RateDigit) : bns,
                         };
                         rates.Add(rate);
                     });
                 }
             }
-
+            
             return rates;
         }
         public sealed override List<Rate> GetRates(DateTime date)

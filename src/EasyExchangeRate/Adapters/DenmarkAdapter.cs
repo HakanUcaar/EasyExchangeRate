@@ -5,6 +5,7 @@ using EasyExchangeRate.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
 using System.Xml;
 
 namespace EasyExchangeRate.Adapter
@@ -56,6 +57,8 @@ namespace EasyExchangeRate.Adapter
 
         public override List<Rate> GetRates()
         {
+            var dataSetting = (DataSetting)Options.FirstOrDefault(x => x.GetType() == typeof(DataSetting));
+
             var rates = new List<Rate>();
             var doc = new XmlDocument();
             doc.Load(Source.Url);
@@ -69,7 +72,7 @@ namespace EasyExchangeRate.Adapter
                     this.Currencies.Find(x => x.IsoCode.ToString() == node.Attributes["code"].Value).Do(currency =>
                     {
                         var rate = Decimal.Parse(node.Attributes["rate"].Value.Replace(",", "."), NumberStyles.Currency, new CultureInfo("en-Us")) / Source.Unit;
-                        rates.Add(Rate.From((DateTime.Now, Money.From((rate, BaseCurrency)), currency)));
+                        rates.Add(Rate.From((DateTime.Now, Money.From((dataSetting is not null ? Math.Round(rate, dataSetting.RateDigit) : rate, BaseCurrency)), currency)));
                     });
                 }
             }
