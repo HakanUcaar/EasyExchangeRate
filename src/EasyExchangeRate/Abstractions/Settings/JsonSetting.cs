@@ -5,10 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EasyExchangeRate.Abstraction
+namespace EasyExchangeRate
 {
-    public interface IExchangeRateAdapter
+    public class JsonSetting : IOption
     {
-        public List<IOption> Options { get; set; }
+        public string JsonDateFormat { get; set; } = "yyyy-MM-dd HH:mm:ss";
     }
 }

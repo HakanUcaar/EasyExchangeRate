@@ -3,6 +3,7 @@ using EasyExchangeRate.Common;
 using EasyExchangeRate.Common.ValueObject;
 using EasyExchangeRate.Extensions;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,12 +23,6 @@ namespace EasyExchangeRate.Abstraction
         public virtual Currency BaseCurrency { get; }
         public virtual SourceInfo Source { get; }
 
-        public void AddOption<T>(Action<T> option) where T : IOption
-        {
-            var optInstance = Activator.CreateInstance<T>();
-            option(optInstance);
-            Options.Add(optInstance);
-        }
         public void AddCurrency(Currency currency)
         {
             Currencies.Add(currency);
@@ -50,15 +45,18 @@ namespace EasyExchangeRate.Abstraction
         }
         public string GetJsonRates()
         {
-            return JsonConvert.SerializeObject(GetRates(),Formatting.Indented);
+            var jsonSetting = this.GetOption<JsonSetting>();
+            return JsonConvert.SerializeObject(GetRates(),Formatting.Indented, new IsoDateTimeConverter() { DateTimeFormat = jsonSetting.JsonDateFormat });
         }
         public string GetJsonRates(DateRange dateRange)
         {
-            return JsonConvert.SerializeObject(GetRates(dateRange), Formatting.Indented);
+            var jsonSetting = this.GetOption<JsonSetting>();
+            return JsonConvert.SerializeObject(GetRates(dateRange), Formatting.Indented, new IsoDateTimeConverter() { DateTimeFormat = jsonSetting.JsonDateFormat });
         }
         public string GetJsonRates(int dayCount)
         {
-            return JsonConvert.SerializeObject(GetRates(dayCount), Formatting.Indented);
+            var jsonSetting = this.GetOption<JsonSetting>();
+            return JsonConvert.SerializeObject(GetRates(dayCount), Formatting.Indented, new IsoDateTimeConverter() { DateTimeFormat = jsonSetting.JsonDateFormat });
         }
 
         public virtual Rate GetRate(Currency currency)

@@ -155,7 +155,10 @@ namespace EasyExchangeRate.Samples
 
         static void SettingSample()
         {
-            ExchangeRate.TurkeyAdapter.AddOption<DataSetting>(option => option.RateDigit = 2);
+            ExchangeRate.TurkeyAdapter
+                .AddOption<DataSetting>(option => option.RateDigit = 2)
+                .AddOption<JsonSetting>(option => option.JsonDateFormat = "yyyy-MM-dd");
+
             Console.WriteLine($"Base Currency : {ExchangeRate.TurkeyAdapter.BaseCurrency.Name}");
             Console.WriteLine("Rate :");
             ExchangeRate.TurkeyAdapter.GetRate(CurrencyCodes.EUR).Do(rate =>

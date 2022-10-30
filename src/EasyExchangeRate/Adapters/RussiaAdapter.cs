@@ -65,7 +65,7 @@ namespace EasyExchangeRate.Adapter
 
         public override List<Rate> GetRates()
         {
-            var dataSetting = (DataSetting)Options.FirstOrDefault(x => x.GetType() == typeof(DataSetting));
+            var dataSetting = this.GetOption<DataSetting>();
 
             var rates = new List<Rate>();
             var doc = new XmlDocument();
