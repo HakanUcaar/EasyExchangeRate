@@ -9,6 +9,6 @@ namespace EasyExchangeRate
 {
     public class JsonSetting : IOption
     {
-        public string JsonDateFormat { get; set; } = "yyyy-MM-dd HH:mm:ss";
+        public string DateFormat { get; set; } = "yyyy-MM-dd HH:mm:ss";
     }
 }

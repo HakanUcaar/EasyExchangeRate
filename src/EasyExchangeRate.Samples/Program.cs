@@ -9,6 +9,7 @@ using EasyExchangeRate.Localization.NumberToWord;
 using EasyExchangeRate.Localization;
 using EasyExchangeRate.Common.ValueObject;
 using Newtonsoft.Json;
+using Microsoft.Extensions.Configuration;
 
 namespace EasyExchangeRate.Samples
 {
@@ -28,7 +29,8 @@ namespace EasyExchangeRate.Samples
             //JsonRatesSample();
             //GetRateByDateSample();
             //GetRateByDateRangeSample();
-            SettingSample();
+            //SettingSample();
+            ConfigureSample();
             Console.ReadLine();
         }
 
@@ -152,16 +154,37 @@ namespace EasyExchangeRate.Samples
 
             Console.WriteLine(ExchangeRate.TurkeyAdapter.GetJsonRates(DateRange.From((DateTime.Now.AddDays(-1), DateTime.Now))));
         }
-
         static void SettingSample()
         {
             ExchangeRate.TurkeyAdapter
                 .AddOption<DataSetting>(option => option.RateDigit = 2)
-                .AddOption<JsonSetting>(option => option.JsonDateFormat = "yyyy-MM-dd");
+                .AddOption<JsonSetting>(option => option.DateFormat = "yyyy-MM-dd");
 
             Console.WriteLine($"Base Currency : {ExchangeRate.TurkeyAdapter.BaseCurrency.Name}");
             Console.WriteLine("Rate :");
             ExchangeRate.TurkeyAdapter.GetRate(CurrencyCodes.EUR).Do(rate =>
+            {
+                Console.WriteLine($"{rate.TargetCurrency.Name} = " + rate.Money.Amount);
+            });
+        }
+        static void ConfigureSample()
+        {
+            var config = new ConfigurationBuilder()
+                 .AddJsonFile("appsettings.json", true,true)
+                 .Build();
+
+            ExchangeRate.EuropeAdapter
+                .UseSection(config.GetSection("EasyExchangeRate"))
+                    .Configure<DataSetting>()
+                    .Configure<JsonSetting>();
+
+            //Alternative usage
+            //ExchangeRate.TurkeyAdapter.Configure<DataSetting>(config.GetSection(nameof(DataSetting)));
+            //ExchangeRate.TurkeyAdapter.Configure<JsonSetting>(config.GetSection(nameof(JsonSetting)));
+
+            Console.WriteLine($"Base Currency : {ExchangeRate.EuropeAdapter.BaseCurrency.Name}");
+            Console.WriteLine("Rate :");
+            ExchangeRate.EuropeAdapter.GetRate(CurrencyCodes.TRY).Do(rate =>
             {
                 Console.WriteLine($"{rate.TargetCurrency.Name} = " + rate.Money.Amount);
             });

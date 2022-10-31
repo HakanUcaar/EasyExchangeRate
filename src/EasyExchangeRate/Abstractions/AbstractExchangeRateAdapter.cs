@@ -46,17 +46,17 @@ namespace EasyExchangeRate.Abstraction
         public string GetJsonRates()
         {
             var jsonSetting = this.GetOption<JsonSetting>();
-            return JsonConvert.SerializeObject(GetRates(),Formatting.Indented, new IsoDateTimeConverter() { DateTimeFormat = jsonSetting.JsonDateFormat });
+            return JsonConvert.SerializeObject(GetRates(),Formatting.Indented, new IsoDateTimeConverter() { DateTimeFormat = jsonSetting.DateFormat });
         }
         public string GetJsonRates(DateRange dateRange)
         {
             var jsonSetting = this.GetOption<JsonSetting>();
-            return JsonConvert.SerializeObject(GetRates(dateRange), Formatting.Indented, new IsoDateTimeConverter() { DateTimeFormat = jsonSetting.JsonDateFormat });
+            return JsonConvert.SerializeObject(GetRates(dateRange), Formatting.Indented, new IsoDateTimeConverter() { DateTimeFormat = jsonSetting.DateFormat });
         }
         public string GetJsonRates(int dayCount)
         {
             var jsonSetting = this.GetOption<JsonSetting>();
-            return JsonConvert.SerializeObject(GetRates(dayCount), Formatting.Indented, new IsoDateTimeConverter() { DateTimeFormat = jsonSetting.JsonDateFormat });
+            return JsonConvert.SerializeObject(GetRates(dayCount), Formatting.Indented, new IsoDateTimeConverter() { DateTimeFormat = jsonSetting.DateFormat });
         }
 
         public virtual Rate GetRate(Currency currency)
