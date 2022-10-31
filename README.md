@@ -430,6 +430,55 @@ Base Currency : Turkish Lira
 Rate :
 Euro = 18,68
 ```
+### *Configuration
+Add appsetting.json to project
+``` json
+{
+  "EasyExchangeRate": {
+    "DataSetting": {
+      "RateDigit": 2
+    },
+    "JsonSetting": {
+      "DateFormat": "yyyy-MM-dd"
+    }
+  },
+//alternative
+  "DataSetting": {
+    "RateDigit": 2
+  },
+  "JsonSetting": {
+    "DateFormat": "yyyy-MM-dd"
+  }
+}	
+```	
+Code
+``` csharp
+var config = new ConfigurationBuilder()
+	 .AddJsonFile("appsettings.json", true,true)
+	 .Build();
+
+ExchangeRate.EuropeAdapter
+	.UseSection(config.GetSection("EasyExchangeRate"))
+			.Configure<DataSetting>()
+			.Configure<JsonSetting>();
+
+//Alternative usage
+//ExchangeRate.EuropeAdapter.Configure<DataSetting>(config.GetSection(nameof(DataSetting)));
+//ExchangeRate.EuropeAdapter.Configure<JsonSetting>(config.GetSection(nameof(JsonSetting)));
+
+Console.WriteLine($"Base Currency : {ExchangeRate.EuropeAdapter.BaseCurrency.Name}");
+Console.WriteLine("Rate :");
+ExchangeRate.EuropeAdapter.GetRate(CurrencyCodes.TRY).Do(rate =>
+{
+	Console.WriteLine($"{rate.TargetCurrency.Name} = " + rate.Money.Amount);
+});
+```
+Output
+```
+Base Currency : Euro
+Rate :
+Turkish Lira = 18,46
+```	
 free icon : https://www.iconfinder.com/icons/8725865/exchange_icon
 
 
