@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net5.0;net6.0</TargetFrameworks>
+    <TargetFrameworks>net5.0;net6.0;net7.0</TargetFrameworks>
     <Title>EasyExchangeRate</Title>
     <Authors>Hakan Uçar</Authors>
     <PackageProjectUrl>https://github.com/HakanUcaar/EasyExchangeRate</PackageProjectUrl>
@@ -11,7 +11,7 @@
     <PackageTags>exchange;rate;exchange-rate;central-bank-exchange-rate;central-bank;europe-exchange-rate</PackageTags>
     <NeutralLanguage>tr-TR</NeutralLanguage>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <Version>0.5.6</Version>
+    <Version>0.5.7</Version>
     <Description>Some central bank exchange rates. (Australia,Canada,Denmark,Europe,Israel,Poland,Russia,Turkey)</Description>
     <ApplicationIcon>icon_48.ico</ApplicationIcon>
     <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
@@ -36,8 +36,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="6.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="7.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="7.0.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
 

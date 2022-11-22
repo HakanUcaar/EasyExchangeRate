@@ -25,8 +25,6 @@ namespace EasyExchangeRate
             AustraliaAdapter = new AustraliaAdapter();
             PolandAdapter = new PolandAdapter();
             TurkeyAdapterHumanizer = Adapter.TurkeyAdapterHumanizer.New();
-        }
-        
-
+        }     
     }
 }
