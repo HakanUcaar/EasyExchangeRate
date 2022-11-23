@@ -43,7 +43,7 @@ Some central bank exchange rates
 	- [ ] Australia
 	- [ ] Canada
 	- [ ] Denmark
-	- [ ] Europe
+	- [X] Europe
 	- [ ] Israel
 	- [ ] Poland
 	- [ ] Russia
