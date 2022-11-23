@@ -35,10 +35,9 @@ Some central bank exchange rates
 <details>
 	<summary>Todo</summary>
  
-  - [ ] Add more country
   - [X] JSON serialize
   - [X] Nuget package
-  - [ ] Web deploy(open api)
+  - [X] Web deploy(open api)
   - [ ] DateRange
 	- [ ] Australia
 	- [ ] Canada
