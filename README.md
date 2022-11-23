@@ -53,8 +53,8 @@ Some central bank exchange rates
 	- [X] English
 	- [ ] Affrikan
 	- [ ] Arabic
-	- [ ] Armenian
-	- [ ] Azerbaijani
+	- [X] Armenian
+	- [X] Azerbaijani
 	- [ ] Bangla
 	- [ ] Bulgarian
 	- [ ] Chinese
@@ -66,7 +66,7 @@ Some central bank exchange rates
 	- [ ] German
 	- [ ] Greek
 	- [ ] Indian
-	- [ ] Italian
+	- [X] Italian
 	- [ ] Japanese
 	- [ ] Korean
 	- [ ] Latvian
@@ -76,8 +76,8 @@ Some central bank exchange rates
 	- [ ] Spanish
 	- [ ] Tamil
 	- [ ] Thai
-	- [ ] Ukrainian
-	- [ ] Uzbek
+	- [X] Ukrainian
+	- [X] Uzbek
 	- [ ] Vietnamase
  
 </details>
