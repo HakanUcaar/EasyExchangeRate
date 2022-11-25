@@ -10,6 +10,7 @@ using EasyExchangeRate.Localization;
 using EasyExchangeRate.Common.ValueObject;
 using Newtonsoft.Json;
 using Microsoft.Extensions.Configuration;
+using Optionable;
 
 namespace EasyExchangeRate.Samples
 {

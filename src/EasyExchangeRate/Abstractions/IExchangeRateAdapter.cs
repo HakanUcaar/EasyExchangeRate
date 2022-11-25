@@ -9,6 +9,5 @@ namespace EasyExchangeRate.Abstraction
 {
     public interface IExchangeRateAdapter
     {
-        public List<IOption> Options { get; set; }
     }
 }

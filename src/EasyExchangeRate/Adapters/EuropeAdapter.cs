@@ -3,6 +3,7 @@ using EasyExchangeRate.Common;
 using EasyExchangeRate.Common.ValueObject;
 using EasyExchangeRate.Exceptions;
 using EasyExchangeRate.Extensions;
+using Optionable;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
