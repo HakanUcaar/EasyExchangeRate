@@ -4,6 +4,7 @@ using EasyExchangeRate.Common.ValueObject;
 using EasyExchangeRate.Extensions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using Optionable;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,9 +14,9 @@ using System.Threading.Tasks;
 
 namespace EasyExchangeRate.Abstraction
 {
-    public abstract class AbstractExchangeRateAdapter : IExchangeRateAdapter
+    public abstract class AbstractExchangeRateAdapter : IExchangeRateAdapter,IOptionable
     {
-        public List<IOption> Options { get; set; } = new List<IOption>();
+        public List<IOption> Options { get; set; } = new();
         public List<Currency> Currencies { get; protected set; } = new List<Currency>();
         public virtual List<Rate> Rates { get; protected set; } = new List<Rate>();
 
