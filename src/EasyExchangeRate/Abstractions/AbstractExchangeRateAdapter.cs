@@ -18,7 +18,7 @@ namespace EasyExchangeRate.Abstraction
     {
         public List<IOption> Options { get; set; } = new();
         public List<Currency> Currencies { get; protected set; } = new List<Currency>();
-        public virtual List<Rate> Rates { get; protected set; } = new List<Rate>();
+        public List<Rate> Rates { get; protected set; } = new List<Rate>();
 
         public DateTime UpdateDate { get; protected set; }
         public virtual Currency BaseCurrency { get; }

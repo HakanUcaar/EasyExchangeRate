@@ -20,6 +20,48 @@ namespace EasyExchangeRate.Common
         {
             return $"{Money.Amount}{Money.Currency.Symbol}";
         }
+        public string ToString(Action<DisplaySetting> option)
+        {
+            var setting = new DisplaySetting();
+            option(setting);
+
+            string Display(DisplayType displayType) =>
+                displayType switch
+                {
+                    DisplayType.Symbol => Money.Currency.Symbol,
+                    DisplayType.Name => $" {Money.Currency.Name}",
+                };
+
+            string Rotation(RotationType rotationType) =>
+                rotationType switch
+                {
+                    RotationType.Prefix => $"{Display(setting.Display)}{Money.Amount}",
+                    RotationType.Suffix => $"{Money.Amount}{Display(setting.Display)}"                    
+                };
+
+            var value = "";
+            //TODO It will be add
+            switch (setting.Notation)
+            {
+                case NotationType.Standard:
+                    break;
+                case NotationType.Compact:
+                    break;
+                default:
+                    break;
+            }
+
+            if (setting.CurrencyDisplay)
+            {
+                value = Rotation(setting.SymbolRotation);
+            }
+            else
+            {
+                value = $"{Money.Amount}";
+            }          
+            
+            return value;
+        }
         protected static bool Equal(Rate a, Rate b)
         {
             if (a is null || b is null)

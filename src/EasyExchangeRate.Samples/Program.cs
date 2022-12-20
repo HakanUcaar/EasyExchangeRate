@@ -11,6 +11,7 @@ using EasyExchangeRate.Common.ValueObject;
 using Newtonsoft.Json;
 using Microsoft.Extensions.Configuration;
 using Optionable;
+using System.Net.NetworkInformation;
 
 namespace EasyExchangeRate.Samples
 {
@@ -31,8 +32,23 @@ namespace EasyExchangeRate.Samples
             //GetRateByDateSample();
             //GetRateByDateRangeSample();
             //SettingSample();
-            ConfigureSample();
-            Console.ReadLine();
+            //ConfigureSample();
+            //ToStringOption();
+
+            while (true)
+            {
+                Console.WriteLine("Please write a number");
+                StringOrNumber input = Console.ReadLine();
+
+                if (input.GetString().Text == "exit")
+                {
+                    break;
+                }
+
+                StringOrNumber result = EnglishNumberToWordsConverter.New().Convert(input);
+                Console.WriteLine($"result : {result.GetString().Text}");
+                Console.WriteLine("---------------------------------");
+            }
         }
 
         static void GetCurrenciesSample()
@@ -109,18 +125,24 @@ namespace EasyExchangeRate.Samples
                 Console.WriteLine(EnglishNumberToWordsConverter.New().ToWord(rate));
             });
 
-            Console.WriteLine(EnglishNumberToWordsConverter.New().Convert(123456789));
-            Console.WriteLine(TurkishNumberToWordConverter.New().Convert(123456789));
-            Console.WriteLine(AzerbaijaniNumberToWordsConverter.New().Convert(123456789));
-            Console.WriteLine(ItalianNumberToWordsConverter.New().Convert(123456789));
-            Console.WriteLine(UkrainianNumberToWordsConverter.New().Convert(123456789));
-            Console.WriteLine(UzbekLatnNumberToWordConverter.New().Convert(123456789));
-            Console.WriteLine(ArmenianNumberToWordsConverter.New().Convert(123456789));
+            Console.WriteLine(EnglishNumberToWordsConverter.New().Convert(1234567892));
+            Console.WriteLine(TurkishNumberToWordConverter.New().Convert(1234567892));
+            Console.WriteLine(AzerbaijaniNumberToWordsConverter.New().Convert(1234567892));
+            Console.WriteLine(ItalianNumberToWordsConverter.New().Convert(1234567892));
+            Console.WriteLine(UkrainianNumberToWordsConverter.New().Convert(1234567892));
+            Console.WriteLine(UzbekLatnNumberToWordConverter.New().Convert(1234567892));
+            Console.WriteLine(ArmenianNumberToWordsConverter.New().Convert(1234567892));
         }
         static void WordToNumberSample()
         {
-            Console.WriteLine(EnglishNumberToWordsConverter.New().Convert("One Billion Two Hundred Thirty Four Million Five Hundred Sixty Seven Thousand Eight Hundred Ninety Two"));
-            Console.WriteLine(TurkishNumberToWordConverter.New().Convert("Bir Milyar İki Yüz Otuz Dört Milyon Beş Yüz Altmış Yedi Bin Sekiz Yüz Doksan İki"));
+            Console.WriteLine(EnglishNumberToWordsConverter.New().Convert("OneBillionTwoHundred Thirty Four Million Five Hundred Sixty Seven Thousand Eight Hundred Ninety Two"));
+            Console.WriteLine(TurkishNumberToWordConverter.New().Convert("Bir Milyar İki Yüz Otuz Dört MilyonBeşYüz Altmış Yedi Bin Sekiz Yüz Doksan İki"));
+            Console.WriteLine(TurkishNumberToWordConverter.New().Convert("yüzyirmisekiz"));
+            Console.WriteLine(AzerbaijaniNumberToWordsConverter.New().Convert("Bir Milyard İki Yüz Otuz Dörd MilyonBeş Yüz Altmış Yeddi Bin Səkkiz Yüz Doxsan İki"));
+            Console.WriteLine(ItalianNumberToWordsConverter.New().Convert("uno miliardi duecento trenta quattro milioni cinquecento sessanta sette mila ottocento novanta due"));
+            Console.WriteLine(UkrainianNumberToWordsConverter.New().Convert("один мільярда двісті тридцять чотири мільйона п'ятсот шістдесят сім тисячі вісімсот дев'яносто два"));
+            Console.WriteLine(UzbekLatnNumberToWordConverter.New().Convert("bir milliard İkki Yuz O`ttiz To`rt MillionBesh Yuz Oltmish Yetti Ming Sakkiz Yuz To`qson İkki"));
+            Console.WriteLine(ArmenianNumberToWordsConverter.New().Convert("Մեկ Միլիարդ Երկու Հարյուր Երեսուն Չորս Միլիոն Հինգ Հարյուր Վաթսուն Յոթ Հազար Ութ Հարյուր Իննսուն Երկու"));
         }
         static void JsonRateSample()
         {
@@ -171,7 +193,7 @@ namespace EasyExchangeRate.Samples
         static void ConfigureSample()
         {
             var config = new ConfigurationBuilder()
-                 .AddJsonFile("appsettings.json", true,true)
+                 .AddJsonFile("appsettings.json", true, true)
                  .Build();
 
             ExchangeRate.EuropeAdapter
@@ -189,6 +211,19 @@ namespace EasyExchangeRate.Samples
             {
                 Console.WriteLine($"{rate.TargetCurrency.Name} = " + rate.Money.Amount);
             });
+        }
+        static void ToStringOption()
+        {
+            Console.WriteLine($"Base Currency : {ExchangeRate.TurkeyAdapter.BaseCurrency.Name}");
+            ExchangeRate.TurkeyAdapter.GetRate(CurrencyCodes.EUR).Do(rate =>
+            {
+                Console.WriteLine($"1 {rate.TargetCurrency.Name} = " + rate.ToString(opt =>
+                {
+                    opt.Display = DisplayType.Name;
+                    opt.SymbolRotation = RotationType.Suffix;
+                }));
+            });
+
         }
     }
 }

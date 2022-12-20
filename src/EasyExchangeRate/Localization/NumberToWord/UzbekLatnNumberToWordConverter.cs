@@ -35,7 +35,7 @@ namespace EasyExchangeRate.Localization.NumberToWord
             AddDigit(Digit.From(("Yuz", "", 100)));
             AddDigit(Digit.From(("Ming", "", 1000)));
             AddDigit(Digit.From(("Million", "", 1000000)));
-            AddDigit(Digit.From(("Milliard ", "", 1000000000)));
+            AddDigit(Digit.From(("Milliard", "", 1000000000)));
             AddDigit(Digit.From(("Trilyon", "", 1000000000000)));
             AddDigit(Digit.From(("Katrilyon", "", 1000000000000000)));
             AddDigit(Digit.From(("Sextillion", "", 1000000000000000000)));
