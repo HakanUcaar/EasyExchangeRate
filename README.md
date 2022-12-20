@@ -420,7 +420,7 @@ Console.WriteLine($"Base Currency : {ExchangeRate.TurkeyAdapter.BaseCurrency.Nam
 Console.WriteLine("Rate :");
 ExchangeRate.TurkeyAdapter.GetRate(CurrencyCodes.EUR).Do(rate =>
 {
-Console.WriteLine($"{rate.TargetCurrency.Name} = " + rate.Money.Amount);
+	Console.WriteLine($"{rate.TargetCurrency.Name} = " + rate.Money.Amount);
 });
 ```
 Output
@@ -478,7 +478,39 @@ Base Currency : Euro
 Rate :
 Turkish Lira = 18,46
 ```	
-free icon : https://www.iconfinder.com/icons/8725865/exchange_icon
+
+### *ToString Option
+``` csharp
+rate.ToString(opt =>
+{
+	opt.Display = DisplayType.Name;
+	opt.SymbolRotation = RotationType.Suffix;
+})
+```
+Output
+```
+19,8025 Turkish Lira
+```	
+
+### *Number String Exchange
+``` csharp
+while (true)
+{
+		Console.WriteLine("Please write a number");
+		StringOrNumber input = Console.ReadLine();
+
+		if (input.GetString().Text == "exit")
+		{
+				break;
+		}
+
+		StringOrNumber result = EnglishNumberToWordsConverter.New().Convert(input);
+		Console.WriteLine($"result : {result.GetString().Text}");
+		Console.WriteLine("---------------------------------");
+}
+```
+
+icon : https://www.iconfinder.com/icons/8725865/exchange_icon
 
 
 
